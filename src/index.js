@@ -2,6 +2,7 @@
 
 const contenedorPrincipal = document.getElementById('main');
 const ignorarRepos = ['adriantaf.github.io', 'sublime-text'];
+const NM_palabrasMayusculas = ['nasa', 'api'];
 let GithubNombreUsuario = 'adriantaf';
 let GithubReposLink = `https://api.github.com/users/${GithubNombreUsuario}/repos`;
 
@@ -24,12 +25,39 @@ function main(json) {
 }
 
 function normalizarNombre(nombre) {
+	// ---- Separar el nombre
 	let arrayNombre = nombre.split('-');
-	let inicialNombre = arrayNombre[0].charAt(0);
-	let primerPalabraNombre = arrayNombre[0].replace(inicialNombre, inicialNombre.toUpperCase());
 
-	arrayNombre[0] = primerPalabraNombre;
+	// Primer palabra del nombre
+	let primerPalabraNombre = arrayNombre[0];
 
+	// ---- Hacer mayusculas las palabras seleccionadas
+	if (NM_palabrasMayusculas.includes(primerPalabraNombre)) {
+
+		arrayNombre.forEach(elemento => {
+			if (NM_palabrasMayusculas.includes(elemento)) {
+				elemento = elemento.toUpperCase();
+				console.log(elemento)
+			}
+		});
+
+	} else {
+		// ---- Hacer mayuscula la inicial dela primer palabra del nombre
+		// Guardar la iniciar de la primer palabra
+		let inicialNombre = arrayNombre[0].charAt(0);
+		// Hacer mayuscula la primer letra de la primer palabra
+		let primerPalabraNombreEnMayuscula = arrayNombre[0].replace(inicialNombre, inicialNombre.toUpperCase());
+		// Cambiar la primer palabra con la primer palabra normalizada
+		arrayNombre[0] = primerPalabraNombreEnMayuscula;
+
+		arrayNombre.forEach((elemento, i, arr) => {
+			if (NM_palabrasMayusculas.includes(elemento)) {
+				arr[i] = elemento.toUpperCase();
+			}
+		});
+	}
+
+	// ---- Unir el nombre
 	let nombreNormalizado = arrayNombre.join(' ');
 
 	return nombreNormalizado;
