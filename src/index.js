@@ -2,7 +2,7 @@
 
 const contenedorPrincipal = document.getElementById('main');
 const ignorarRepos = ['adriantaf.github.io', 'sublime-text'];
-const NM_palabrasMayusculas = ['nasa', 'api'];
+const NM_palabrasMayusculas = ['nasa', 'api', 'imc', 'js', 'css', 'html'];
 let GithubNombreUsuario = 'adriantaf';
 let GithubReposLink = `https://api.github.com/users/${GithubNombreUsuario}/repos`;
 
