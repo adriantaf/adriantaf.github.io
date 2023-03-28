@@ -34,10 +34,9 @@ function normalizarNombre(nombre) {
 	// ---- Hacer mayusculas las palabras seleccionadas
 	if (NM_palabrasMayusculas.includes(primerPalabraNombre)) {
 
-		arrayNombre.forEach(elemento => {
+		arrayNombre.forEach((elemento, i, arr) => {
 			if (NM_palabrasMayusculas.includes(elemento)) {
-				elemento = elemento.toUpperCase();
-				console.log(elemento)
+				arr[i] = elemento.toUpperCase();
 			}
 		});
 
