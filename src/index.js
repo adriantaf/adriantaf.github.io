@@ -1,7 +1,7 @@
 'use strict';
 
 const contenedorPrincipal = document.getElementById('main');
-const ignorarRepos = ['adriantaf.github.io', 'sublime-text'];
+const ignorarRepos = ['adriantaf.github.io'/*, 'sublime-text'*/];
 const NM_palabrasMayusculas = ['nasa', 'api', 'imc', 'js', 'css', 'html'];
 let GithubNombreUsuario = 'adriantaf';
 let GithubReposLink = `https://api.github.com/users/${GithubNombreUsuario}/repos`;
@@ -10,7 +10,7 @@ function main(json) {
 	const templateCard = document.getElementById('template-card').content;
 
 	json.forEach(elemento => {
-		if (!ignorarRepos.includes(elemento.name)) {
+		if (!ignorarRepos.includes(elemento.name) && elemento.has_pages) {
 			let cloneTemplateCard = templateCard.cloneNode(true);
 			let nombreRepo = elemento.name;
 			let nombreRepoNormalizado = normalizarNombre(nombreRepo);
