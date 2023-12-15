@@ -1,0 +1,197 @@
+[
+	{
+		"repositorio": "img-del-dia",
+		"nombre": "Imagen del dia",
+		"descripcion": "Selecciona una fecha y recibe como respuesta la fot que la NASA tomó ese dia.",
+		"imagenes": {
+			"src": ["img-del-dia-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 1.0,
+		"preview": true,
+		"top": false,
+		"slider": false
+	},
+	{
+		"repositorio": "note-js",
+		"nombre": "Note JS",
+		"descripcion": "Aplicacion web de notas.",
+		"imagenes": {
+			"src": ["note-js-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 2.0,
+		"preview": true,
+		"top": false,
+		"slider": false
+	},
+	{
+		"repositorio": "asteroides-api-nasa",
+		"nombre": "Asteroides",
+		"descripcion": "Consulta los asteroides que pasaron cerca de la Tierra y ve informacion detallada sobre los mismos.",
+		"imagenes": {
+			"src": ["asteroides-api-nasa-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 1.0,
+		"preview": true,
+		"top": false,
+		"slider": false
+	},
+	{
+		"repositorio": "imc",
+		"nombre": "Indice de Masa Corporal",
+		"descripcion": "Un calculador sencillo de indice de masa corporal.",
+		"imagenes": {
+			"src": ["imc-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 2.0,
+		"preview": true,
+		"top": false,
+		"slider": false
+	},
+	{
+		"repositorio": "to-do-list",
+		"nombre": "To do list",
+		"descripcion": "Aplicacion web de lista de tareas.",
+		"imagenes": {
+			"src": ["to-do-list-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 2.0,
+		"preview": true,
+		"top": true,
+		"slider": false
+	},
+	{
+		"repositorio": "codigo-binario",
+		"nombre": "Codigo Binario (ASCII)",
+		"descripcion": "Convierte codigo binario a texto y biceversa, la codificacion funciona con codigo ASCII.",
+		"imagenes": {
+			"src": ["codigo-binario-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 2.0,
+		"preview": true,
+		"top": false,
+		"slider": false
+	},
+	{
+		"repositorio": "chuck-norris",
+		"nombre": "Frases que Chuck Norris no dijo",
+		"descripcion": "Generador de frases graciosas sobre Chuck Norris.",
+		"imagenes": {
+			"src": ["chuck-norris-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 2.0,
+		"preview": true,
+		"top": false,
+		"slider": false
+	},
+	{
+		"repositorio": "tienda-de-ropa",
+		"nombre": "Tienda de ropa",
+		"descripcion": "Es el diseño web de una tienda de ropa.",
+		"imagenes": {
+			"src": ["tienda-de-ropa-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": true,
+		"version": 2.0,
+		"preview": true,
+		"top": true,
+		"slider": false
+	},
+	{
+		"repositorio": "gatito",
+		"nombre": "Gatito",
+		"descripcion": "Juego del gatito, un solo jugador vs mi código.",
+		"imagenes": {
+			"src": ["gatito-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": false,
+		"version": 2.0,
+		"preview": true,
+		"top": true,
+		"slider": false
+	},
+	{
+		"repositorio": "salon-by-ale",
+		"nombre": "Salon by Ale",
+		"descripcion": "Página web sobre el salon de belleza llamado 'Salon by Ale'.",
+		"imagenes": {
+			"src": ["salon-by-ale-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": false,
+		"version": 3.0,
+		"preview": true,
+		"top": true,
+		"slider": false
+	},
+	{
+		"repositorio": "cultura-vial",
+		"nombre": "Cultura Vial",
+		"descripcion": "Proyecto escolar sobre la cultura vial.\nProximamente aplicación movil.",
+		"imagenes": {
+			"src": ["cultura-vial-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js"],
+		"completado": false,
+		"version": 2.0,
+		"preview": true,
+		"top": true,
+		"slider": false
+	},
+	{
+		"repositorio": "ctl",
+		"nombre": "CTL Relojes",
+		"descripcion": "Proyecto escolar sobre una tienda de relojes.",
+		"imagenes": {
+			"src": ["ctl-1"],
+			"alt": []
+		},
+		"tecnologias": ["html", "css", "js", "php", "mysql"],
+		"completado": true,
+		"version": 2.0,
+		"preview": false,
+		"top": true,
+		"slider": true
+	},
+	{
+		"repositorio": "inventario",
+		"nombre": "Inventario",
+		"descripcion": "Aplicacion web sobre un inventario, con base de datos.",
+		"imagenes": {
+			"src": ["inventario-1"],
+			"alt": ["Imagen 1 de la vista previa de \"Inventario\""]
+		},
+		"tecnologias": ["html", "css", "js", "php", "mysql"],
+		"completado": false,
+		"version": 2.0,
+		"preview": false,
+		"top": true,
+		"slider": true
+	}
+]

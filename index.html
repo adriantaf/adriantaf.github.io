@@ -3,36 +3,98 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Proyectos ~ Adrian Tafoya</title>
-	<link rel="icon" href="res/img/icono.png">
+	<title>Adrian TM</title>
+	<link rel="icon" href="./res/icons/icono.png">
 	<!-- CSS -->
-	<link rel="stylesheet" href="res/css/normalize.css">
-	<link rel="stylesheet" href="res/css/main.css">
+	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/index.css">
 	<!-- Fuente -->
-	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap" rel="stylesheet">
+	<!-- Iconos -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-	<header class="bloque">
+	<header class="header">
 		<div class="cont-limite">
-			<span class="titulo">Proyectos</span>
+			<img class="header__img-perfil" src="./res/img/perfil.jpg" alt="Foto de perfil de Instagram">
+			<div class="header__cont-info">
+				<h1 class="header__nombre">Adrian Tafoya</h1>
+				<ul>
+					<li>
+						<span class="material-symbols-outlined">alternate_email</span>
+						<a href="mailto:atafoya863@gmail.com" class="link">atafoya863@gmail.com</a>
+					</li>
+					<li>
+						<span class="material-symbols-outlined">call</span>
+						<a href="tel:6461363812" class="link">646 136 3812</a>
+					</li>
+					<li>
+						<span class="material-symbols-outlined">link</span>
+						<a href="https://github.com/adriantaf/" class="link">github/adriantaf</a>
+					</li>
+				</ul>
+			</div>
+			<div class="header__cont-info-2">
+				<div>
+					<h3>Conocimientos</h3>
+					<ul>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>JavaScript</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Aprendiendo</h3>
+					<ul>
+						<li>PHP</li>
+						<li>MySQL</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</header>
-	<main>
-		<div id="main" class="cont-limite">
-			<template id="template-card">
-				<article class="card bloque">
-					<h3 id="nombre" class="titulo">Aplicaciones cordova</h3>
-					<a href="https://adriantafoya.github.io/cordovaApp/" target="_blank" id="link" class="link"></a>
-				</article>
-			</template>
-		</div>
-	</main>
-	<footer class="bloque">
+	<div class="cont-limite">
+		<main class="main">
+			<article class="card">
+				<section class="card__slider">
+					<img class="card__slider__img" src="./res/img-proyectos/img-del-dia.png" alt="Vista previa de un proyecto">
+				</section>
+				<section class="card__body">
+					<h3 id="titulo" class="card__body__titulo">Imagen del dia</h3>
+					<p id="card__body__descripcion" class="card__body__descripcion">Se trata de una página que te muestra la imagen que la NASA tomó en una fecha determinada. Los datos son extraidos de la API de la NASA</p>
+					<p class="card__body__especificaciones">
+						Version: <span id="version">1.0</span> <br>
+						Tecnologias: <span id="tecnologias">HTML, CSS, JS</span> <br>
+						Completado: <span id="completado">Si</span>
+					</p>
+					<div id="cont-link" class="card__body__cont-link">
+						<a href="#" target="_blank" id="link" class="card__body__link">Vista previa <span class="material-symbols-outlined">open_in_new</span></a>
+					</div>
+				</section>
+			</article>
+			<article class="card">
+				<section class="card__slider">
+					<img class="card__slider__img" src="./res/img-proyectos/pasteleria.png" alt="Vista previa de un proyecto">
+				</section>
+				<section class="card__body">
+					<h3 id="titulo" class="card__body__titulo">Imagen del dia</h3>
+					<p id="card__body__descripcion" class="card__body__descripcion">Se trata de una página que te muestra la imagen que la NASA tomó en una fecha determinada. Los datos son extraidos de la API de la NASA</p>
+					<p class="card__body__especificaciones">
+						Version: <span id="version">1.0</span> <br>
+						Tecnologias: <span id="tecnologias">HTML, CSS, JS</span> <br>
+						Completado: <span id="completado">Si</span>
+					</p>
+				</section>
+			</article>
+		</main>
+	</div>
+	<footer class="footer">
 		<div class="cont-limite">
-			<small>Desarrollado por <a href="https://github.com/adriantaf" class="link">Adrian Tafoya</a></small>
+			<small>Desarrollado por <a href="https://github.com/adriantaf" class="link">Adrian TM</a></small>
 		<div class="cont-elementos">
 	</footer>
 	<!-- JS -->
-	<script type="text/javascript" src="./src/index.js"></script>
+	<script src="./src/js/main.js" type="module"></script>
 </body>
 </html>
