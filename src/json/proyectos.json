@@ -1,197 +1,182 @@
 [
 	{
-		"repositorio": "img-del-dia",
+		"id": "img-del-dia",
 		"nombre": "Imagen del dia",
 		"descripcion": "Selecciona una fecha y recibe como respuesta la fot que la NASA tomó ese dia.",
-		"imagenes": {
-			"src": ["img-del-dia-1"],
-			"alt": []
-		},
+		"src": ["img-del-dia-1.png", "img-del-dia-2.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 1.0,
 		"preview": true,
-		"top": false,
+		"is_top": false,
 		"slider": false
 	},
 	{
-		"repositorio": "note-js",
+		"id": "loc-os-linux",
+		"nombre": "LocOS Linux",
+		"descripcion": "Es un rediseño de la página oficial de una distribución Linux, llamada \"LocOS Linux\".\nEstuvo en uso durante el año 2021.",
+		"src": ["loc-os-linux-1.png"],
+		"tecnologias": ["html", "css", "js"],
+		"estado": true,
+		"version": 2.0,
+		"preview": true,
+		"is_top": true,
+		"slider": false
+	},
+	{
+		"id": "pasteleria",
+		"nombre": "Pasteleria",
+		"descripcion": "Es una sitio web sobre una pasteleria.",
+		"src": ["pasteleria-1.png"],
+		"tecnologias": ["html", "css", "js"],
+		"estado": true,
+		"version": 1.0,
+		"preview": true,
+		"is_top": true,
+		"slider": false
+	},
+	{
+		"id": "note-js",
 		"nombre": "Note JS",
 		"descripcion": "Aplicacion web de notas.",
-		"imagenes": {
-			"src": ["note-js-1"],
-			"alt": []
-		},
+		"src": ["note-js-1.png", "note-js-2.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 2.0,
 		"preview": true,
-		"top": false,
+		"is_top": false,
 		"slider": false
 	},
 	{
-		"repositorio": "asteroides-api-nasa",
+		"id": "asteroides-api-nasa",
 		"nombre": "Asteroides",
 		"descripcion": "Consulta los asteroides que pasaron cerca de la Tierra y ve informacion detallada sobre los mismos.",
-		"imagenes": {
-			"src": ["asteroides-api-nasa-1"],
-			"alt": []
-		},
+		"src": ["asteroides-api-nasa-1.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 1.0,
 		"preview": true,
-		"top": false,
+		"is_top": false,
 		"slider": false
 	},
 	{
-		"repositorio": "imc",
+		"id": "imc",
 		"nombre": "Indice de Masa Corporal",
 		"descripcion": "Un calculador sencillo de indice de masa corporal.",
-		"imagenes": {
-			"src": ["imc-1"],
-			"alt": []
-		},
+		"src": ["imc-1.png", "imc-2.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 2.0,
 		"preview": true,
-		"top": false,
+		"is_top": false,
 		"slider": false
 	},
 	{
-		"repositorio": "to-do-list",
+		"id": "to-do-list",
 		"nombre": "To do list",
 		"descripcion": "Aplicacion web de lista de tareas.",
-		"imagenes": {
-			"src": ["to-do-list-1"],
-			"alt": []
-		},
+		"src": ["to-do-list-1.png", "to-do-list-2.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 2.0,
 		"preview": true,
-		"top": true,
+		"is_top": true,
 		"slider": false
 	},
 	{
-		"repositorio": "codigo-binario",
+		"id": "codigo-binario",
 		"nombre": "Codigo Binario (ASCII)",
 		"descripcion": "Convierte codigo binario a texto y biceversa, la codificacion funciona con codigo ASCII.",
-		"imagenes": {
-			"src": ["codigo-binario-1"],
-			"alt": []
-		},
+		"src": ["codigo-binario-1.png", "codigo-binario-2.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 2.0,
 		"preview": true,
-		"top": false,
+		"is_top": false,
 		"slider": false
 	},
 	{
-		"repositorio": "chuck-norris",
+		"id": "chuck-norris",
 		"nombre": "Frases que Chuck Norris no dijo",
 		"descripcion": "Generador de frases graciosas sobre Chuck Norris.",
-		"imagenes": {
-			"src": ["chuck-norris-1"],
-			"alt": []
-		},
+		"src": ["chuck-norris-1.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 2.0,
 		"preview": true,
-		"top": false,
+		"is_top": false,
 		"slider": false
 	},
 	{
-		"repositorio": "tienda-de-ropa",
+		"id": "tienda-de-ropa",
 		"nombre": "Tienda de ropa",
 		"descripcion": "Es el diseño web de una tienda de ropa.",
-		"imagenes": {
-			"src": ["tienda-de-ropa-1"],
-			"alt": []
-		},
+		"src": ["tienda-de-ropa-1.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": true,
+		"estado": true,
 		"version": 2.0,
 		"preview": true,
-		"top": true,
+		"is_top": true,
 		"slider": false
 	},
 	{
-		"repositorio": "gatito",
+		"id": "gatito",
 		"nombre": "Gatito",
 		"descripcion": "Juego del gatito, un solo jugador vs mi código.",
-		"imagenes": {
-			"src": ["gatito-1"],
-			"alt": []
-		},
+		"src": ["gatito-1.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": false,
+		"estado": false,
 		"version": 2.0,
 		"preview": true,
-		"top": true,
+		"is_top": true,
 		"slider": false
 	},
 	{
-		"repositorio": "salon-by-ale",
+		"id": "salon-by-ale",
 		"nombre": "Salon by Ale",
 		"descripcion": "Página web sobre el salon de belleza llamado 'Salon by Ale'.",
-		"imagenes": {
-			"src": ["salon-by-ale-1"],
-			"alt": []
-		},
+		"src": ["salon-by-ale-1.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": false,
+		"estado": false,
 		"version": 3.0,
 		"preview": true,
-		"top": true,
+		"is_top": true,
 		"slider": false
 	},
 	{
-		"repositorio": "cultura-vial",
+		"id": "cultura-vial",
 		"nombre": "Cultura Vial",
 		"descripcion": "Proyecto escolar sobre la cultura vial.\nProximamente aplicación movil.",
-		"imagenes": {
-			"src": ["cultura-vial-1"],
-			"alt": []
-		},
+		"src": ["cultura-vial-1.png", "cultura-vial-2.png"],
 		"tecnologias": ["html", "css", "js"],
-		"completado": false,
+		"estado": false,
 		"version": 2.0,
 		"preview": true,
-		"top": true,
+		"is_top": true,
 		"slider": false
 	},
 	{
-		"repositorio": "ctl",
+		"id": "ctl",
 		"nombre": "CTL Relojes",
 		"descripcion": "Proyecto escolar sobre una tienda de relojes.",
-		"imagenes": {
-			"src": ["ctl-1"],
-			"alt": []
-		},
+		"src": ["ctl-1.png", "ctl-2.png", "ctl-3.png", "ctl-4.png"],
 		"tecnologias": ["html", "css", "js", "php", "mysql"],
-		"completado": true,
+		"estado": true,
 		"version": 2.0,
 		"preview": false,
-		"top": true,
+		"is_top": true,
 		"slider": true
 	},
 	{
-		"repositorio": "inventario",
+		"id": "inventario-app",
 		"nombre": "Inventario",
 		"descripcion": "Aplicacion web sobre un inventario, con base de datos.",
-		"imagenes": {
-			"src": ["inventario-1"],
-			"alt": ["Imagen 1 de la vista previa de \"Inventario\""]
-		},
+		"src": ["inventario-app-1.png", "inventario-app-2.png"],
 		"tecnologias": ["html", "css", "js", "php", "mysql"],
-		"completado": false,
+		"estado": false,
 		"version": 2.0,
 		"preview": false,
-		"top": true,
+		"is_top": true,
 		"slider": true
 	}
 ]

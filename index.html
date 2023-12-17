@@ -58,45 +58,39 @@
 		</div>
 	</header>
 	<div class="cont-limite">
-		<main class="main">
-			<article class="card">
-				<section class="card__slider">
-					<img class="card__slider__img" src="./res/img-proyectos/img-del-dia.png" alt="Vista previa de un proyecto">
-				</section>
-				<section class="card__body">
-					<h3 id="titulo" class="card__body__titulo">Imagen del dia</h3>
-					<p id="card__body__descripcion" class="card__body__descripcion">Se trata de una página que te muestra la imagen que la NASA tomó en una fecha determinada. Los datos son extraidos de la API de la NASA</p>
-					<p class="card__body__especificaciones">
-						Version: <span id="version">1.0</span> <br>
-						Tecnologias: <span id="tecnologias">HTML, CSS, JS</span> <br>
-						Completado: <span id="completado">Si</span>
-					</p>
-					<div id="cont-link" class="card__body__cont-link">
-						<a href="#" target="_blank" id="link" class="card__body__link">Vista previa <i class="fi fi-rr-browsers"></i></a>
-					</div>
-				</section>
-			</article>
-			<article class="card">
-				<section class="card__slider">
-					<img class="card__slider__img" src="./res/img-proyectos/pasteleria.png" alt="Vista previa de un proyecto">
-				</section>
-				<section class="card__body">
-					<h3 id="titulo" class="card__body__titulo">Imagen del dia</h3>
-					<p id="card__body__descripcion" class="card__body__descripcion">Se trata de una página que te muestra la imagen que la NASA tomó en una fecha determinada. Los datos son extraidos de la API de la NASA</p>
-					<p class="card__body__especificaciones">
-						Version: <span id="version">1.0</span> <br>
-						Tecnologias: <span id="tecnologias">HTML, CSS, JS</span> <br>
-						Completado: <span id="completado">Si</span>
-					</p>
-				</section>
-			</article>
-		</main>
+		<main id="main" class="main"></main>
 	</div>
 	<footer class="footer">
 		<div class="cont-limite">
 			<small>Desarrollado por <a href="https://github.com/adriantaf" class="link">Adrian TM</a></small>
 		<div class="cont-elementos">
 	</footer>
+	<template id="template-proyecto">
+		<article class="card">
+			<span id="scroll-icon" class="card__slider__icon-scroll">
+				<i class="fi fi-rs-gallery"></i>
+			</span>
+			<section id="slider" class="card__slider">
+				<img class="card__slider__img" src="" alt="Vista previa de un proyecto">
+			</section>
+			<section class="card__body">
+				<h3 id="nombre" class="card__body__titulo"></h3>
+				<p id="descripcion" class="card__body__descripcion"></p>
+				<ul class="card__body__especificaciones">
+					<li><b>No. de version:</b> <span id="version"></span></li>
+					<li><b>Tecnologias:</b> <span id="tecnologias"></span></li>
+					<li><b>Estado:</b> <span id="estado"></span></li>
+					<!-- Completado / En proceso -->
+				</ul>
+				<div id="cont-actions" class="card__body__actions">
+					<span id="top-icon" class="card__body__top-icon">
+						<i class="fi fi-rs-star-comment-alt"></i>
+					</span>
+					<a href="#" target="_blank" id="link" class="card__body__link">Vista previa <i class="fi fi-rs-browsers"></i></a>
+				</div>
+			</section>
+		</article>
+	</template>
 	<!-- JS -->
 	<script src="./src/js/main.js" type="module"></script>
 </body>
