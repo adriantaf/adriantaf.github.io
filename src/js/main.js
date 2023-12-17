@@ -13,13 +13,27 @@ function createItems(data) {
 		const element = data[i];
 		let clonTemplate = document.importNode(TEMPLATE_PROYECTO, true);
 		let fragment = document.createDocumentFragment();
+		let fragmentImages = document.createDocumentFragment();
+		let tecnologiasString = '';
 		fragment.appendChild(clonTemplate);
 
 		fragment.getElementById('nombre').innerText = element.nombre;
 		fragment.getElementById('descripcion').innerText = element.descripcion;
 		fragment.getElementById('version').innerText = parseFloat(element.version);
-		fragment.getElementById('tecnologias').innerText = element.tecnologias[0];
 		fragment.getElementById('estado').innerText = element.estado ? "Completado" : "En proceso";
+
+		// TECNOLOGIAS
+		element.tecnologias.forEach((tecnologia, i, arr) => {
+			if (tecnologia === 'js') {
+				arr[i] = 'JavaScript';
+			} else if (tecnologia === 'mysql') {
+				arr[i] = 'MySQL';
+			} else {
+				arr[i] = tecnologia.toUpperCase();
+			}
+		});
+		tecnologiasString = element.tecnologias.join(', ');
+		fragment.getElementById('tecnologias').innerText = tecnologiasString;
 
 		// LINK
 		if (element.preview) {
@@ -35,11 +49,11 @@ function createItems(data) {
 				fragment.getElementById('cont-actions').parentNode.removeChild(fragment.getElementById('cont-actions'));
 			}
 		}
+		// SCROLL ICON
 		if (element.src.length < 2) {
 			fragment.getElementById('scroll-icon').parentNode.removeChild(fragment.getElementById('scroll-icon'));
 		}
-
-		let fragmentImages = document.createDocumentFragment();
+		// SLIDER
 		element.src.forEach(srcImage => {
 			let image = document.createElement('img');
 			image.src = `./res/img-proyectos/${srcImage}`;
@@ -48,7 +62,6 @@ function createItems(data) {
 		});		
 
 		fragment.getElementById('slider').append(fragmentImages);
-
 		element.is_top ? elementosOrdenados.unshift(fragment) : elementosOrdenados.push(fragment);
 	}
 
