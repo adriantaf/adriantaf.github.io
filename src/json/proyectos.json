@@ -12,6 +12,18 @@
 		"slider": false
 	},
 	{
+		"id": "generador-qr-java",
+		"nombre": "Generador de códigos QR",
+		"descripcion": "Se trata de un generador de codigos QR, en que convierte cualquier cadena de texto en una imagen que contiene un codigo QR.\nEs una aplicacion multiplataforma desarrollada con Java.",
+		"src": ["generador-qr-java-1.png"],
+		"tecnologias": ["java"],
+		"estado": true,
+		"version": 1.0,
+		"preview": false,
+		"is_top": true,
+		"slider": false
+	},
+	{
 		"id": "loc-os-linux",
 		"nombre": "LocOS Linux",
 		"descripcion": "Es un rediseño de la página oficial de una distribución Linux, llamada \"LocOS Linux\".\nEstuvo en uso durante el año 2021.",
