@@ -1,5 +1,15 @@
 [
 	{
+		"id": "hashiramen",
+		"nombre": "HASHI RAMEN PHO",
+		"descripcion": "Desarrollé la página oficial del restaurante HASHI RAMEN PHO ubicado en Plaza las Olas, tiene un diseño atractivo y un apartado para ver el menu. Ademas esta desarrollado con Astro, un framework para crear páginas staticas.",
+		"src": ["hashiramen-1.png", "hashiramen-2.png", "hashiramen-3.png"],
+		"tecnologias": ["astro, tailwind, react"],
+		"url": "https://hashiramen.vercel.app",
+		"is_top": true,
+		"order": 9
+	},
+	{
 		"id": "loc-os-linux",
 		"nombre": "Loc OS Linux",
 		"descripcion": "Es un rediseño de la página oficial de una distribución Linux, llamada \"LocOS Linux\".\nEstuvo en uso durante el año 2021.",

@@ -1,7 +1,7 @@
 'use strict';
 
-const URL_BASE = 'https://adriantaf.github.io/';
-// const URL_BASE = 'http://localhost:8080/';
+// const URL_BASE = 'https://adriantaf.github.io/';
+const URL_BASE = 'http://localhost:8080/';
 let jsonFileProyectos = URL_BASE + "src/json/proyectos.json";
 
 const MAIN = document.getElementById('main');
