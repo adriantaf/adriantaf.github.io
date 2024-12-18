@@ -1,0 +1,121 @@
+---
+import AtSign from "./icons/AtSign.astro";
+import Book from "./icons/Book.astro";
+import Brain from "./icons/Brain.astro";
+import Code from "./icons/Code.astro";
+import Email from "./icons/Email.astro";
+import User from "./icons/User.astro";
+import Diagonal from "./shared/Diagonal.astro";
+import Section from "./shared/Section.astro";
+import imgHashiRamen from "../assets/img/screenshot-hr.png";
+import imgCloneSpotify from "../assets/img/screenshot-sp.png";
+import AstroIcon from "./icons/AstroIcon.astro";
+import React from "./icons/React.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Link from "./icons/Link.astro";
+---
+
+<main class="h-full overflow-hidden">
+  <div
+    class="h-full overflow-x-hidden overflow-y-auto flex flex-col items-center"
+  >
+    <section class="px-5 py-3 w-auto min-h-full flex items-center">
+      <div>
+        <h2 class="text-7xl text-neutral-100 font-medium mb-2">
+          <span class="text-green-200">A</span>drian <span
+            class="text-green-200">T</span
+          >afoya <span class="text-green-200">M</span>.
+        </h2>
+        <div class="py-2 max-w-[700px]">
+          <p class="flex items-center gap-2 text-lg">
+            Desarrollador de Software. Desde 2020, he combinado estudios
+            formales y aprendizaje autodidacta, especializándome en front-end
+            con una proyección hacia full-stack. Me apasiona crear interfaces
+            modernas y desarrollar soluciones prácticas que marquen la
+            diferencia.
+          </p>
+        </div>
+        <div class="mt-4">
+          <a
+            href="#"
+            class="h-7 inline-flex items-center hover:translate-x-2 bg-teal-100 text-slate-950 pr-4"
+          >
+            <Diagonal className="bg-teal-300"><Email /></Diagonal>
+            <span class="pl-4 font-medium">Contáctame</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <Section id="proyectos" title="Proyectos">
+      <Code className="size-8" slot="icon" />
+      <div>
+        <article class="flex gap-8 mb-20">
+          <img
+            class="w-1/2 h-auto border border-neutral-600"
+            src={imgCloneSpotify.src}
+            alt="Imagen del sitio web del restaurante hashi ramen pho"
+          />
+          <div>
+            <h3 class="text-3xl font-medium mb-4 text-green-300">
+              Spotify clone - Web App
+            </h3>
+            <div class="flex gap-4 mb-4">
+              <span><React className="size-6" /></span>
+            </div>
+            <p class="mb-6">
+              Clon Front-end de Spotify, puse en practica mis conocimientos de React con ReactRouter y ContextApi.
+            </p>
+            <div>
+              <a
+                href="#"
+                class="h-7 inline-flex items-center hover:translate-x-2 bg-lime-200 text-slate-950 pr-4"
+              >
+                <Diagonal className="bg-lime-400"><Link /></Diagonal>
+                <span class="pl-4 font-medium">Preview</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="flex gap-8 flex-row-reverse">
+          <img
+            class="w-1/2 h-auto border border-neutral-600"
+            src={imgHashiRamen.src}
+            alt="Imagen del sitio web del restaurante hashi ramen pho"
+          />
+          <div>
+            <h3 class="text-3xl font-medium mb-4 text-pink-300">
+              Hashi ramen pho - Website
+            </h3>
+            <div class="flex gap-4 mb-4">
+              <span><AstroIcon className="size-6" /> </span>
+              <span><React className="size-6" /></span>
+              <span><Tailwind className="size-6" /></span>
+            </div>
+            <p class="mb-6">
+              Sitio web de un restaurante local que sirve comida asiatica, cuenta con pagina de inicio y menu la cual viene de un JSON en el que capturé todo el menú.
+              Creado con Astro, React y Tailwind CSS.
+            </p>
+            <div>
+              <a
+                href="#"
+                class="h-7 inline-flex items-center hover:translate-x-2 bg-red-200 text-slate-950 pr-4"
+              >
+                <Diagonal className="bg-red-400"><Link /></Diagonal>
+                <span class="pl-4 font-medium">Preview</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </Section>
+    <Section id="habilidades" title="Habilidades">
+      <Brain className="size-8" slot="icon" />
+    </Section>
+    <Section id="educacion" title="Educación">
+      <Book className="size-8" slot="icon" />
+    </Section>
+    <Section id="sobre-mi" title="Sobre mí">
+      <User className="size-8" slot="icon" />
+    </Section>
+  </div>
+</main>

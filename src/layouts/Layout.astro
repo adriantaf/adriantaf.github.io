@@ -1,22 +1,96 @@
+---
+import BgVideo from "../assets/video/teclado.mp4";
+import './styles/Fonts.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="Conoce más sobre mi y mis proyectos" />
+		<title>Adrian Tafoya | Portafolio</title>
 	</head>
-	<body>
-		<slot />
+	<body class="text-neutral-100 font-mono relative bg-slate-950">
+		<video
+			id="bg-video"
+			muted
+			autoplay
+			loop
+			class="h-screen z-10 object-cover w-dvw absolute top-0 left-0"
+			src={BgVideo}
+		></video>
+		<div class="body-content h-screen w-screen z-[100] absolute top-0 left-0">
+			<slot />
+		</div>
 	</body>
 </html>
 
-<style>
+<script>
+	const video = document.getElementById("bg-video") as HTMLVideoElement;
+	if (video) {
+		video.playbackRate = 0.5;
+	}
+</script>
+
+<style is:global>
 	html,
 	body {
-		margin: 0;
-		width: 100%;
 		height: 100%;
+		width: 100dvw;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.body-content {
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: 1fr auto;
+		grid-template-areas:
+			"aside main"
+			"aside main"
+			"header header";
+		background: linear-gradient(
+			180deg,
+			rgba(17, 18, 29, 0.85) 0%,
+			rgba(2, 6, 23, 0.85) 80%
+		);
+		backdrop-filter: blur(12px);
+	}
+
+	*::-webkit-scrollbar {
+		width: 14px;
+		background-color: rgba(255, 255, 255, 0.01);
+	}
+	*::-webkit-scrollbar-thumb {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	*::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(255, 255, 255, 0.15);
+	}
+	*::-webkit-scrollbar-thumb:active {
+		background-color: #9a7dcf;
+	}
+
+	*::-webkit-scrollbar-track-piece:start {
+		background: transparent;
+	}
+
+	*::-webkit-scrollbar-track-piece:end {
+		background: transparent;
+	}
+
+	header {
+		grid-area: header;
+	}
+	aside {
+		grid-area: aside;
+	}
+	main {
+		width: 100%;
+		grid-area: main;
 	}
 </style>

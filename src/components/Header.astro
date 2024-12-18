@@ -1,0 +1,37 @@
+---
+import Email from "./icons/Email.astro";
+import Github from "./icons/Github.astro";
+import Logo from "./icons/WebHook.astro";
+import Linkedin from "./icons/Linkedin.astro";
+import Diagonal from "./shared/Diagonal.astro";
+---
+
+<header class="p-2 pb-5">
+  <div class="h-7 flex justify-between">
+    <div class="h-full inline-flex">
+      <Diagonal className="bg-green-400 text-slate-950">
+        <span class="mr-1"><Logo /></span> ATM
+      </Diagonal>
+      <Diagonal className="bg-transparent text-neutral-400 pl-2"
+        >Sobre mi</Diagonal
+      >
+    </div>
+    <div class="h-full inline-flex flex-row-reverse">
+      <a href="#">
+        <Diagonal invert className="bg-neutral-50 text-slate-950">
+          <Email />
+        </Diagonal>
+      </a>
+      <a href="#">
+        <Diagonal invert className="text-neutral-300 pr-3">
+          <Linkedin />
+        </Diagonal>
+      </a>
+      <a href="#">
+        <Diagonal invert className="text-neutral-300 pr-2">
+          <Github />
+        </Diagonal>
+      </a>
+    </div>
+  </div>
+</header>

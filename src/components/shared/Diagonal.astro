@@ -1,0 +1,72 @@
+---
+interface Props {
+  invert?: boolean;
+  className: string;
+}
+
+const { className, invert } = Astro.props as Props;
+const hasSlotContent = Astro.slots.default;
+---
+
+<div
+  class={`${className} ${hasSlotContent ? "px-1" : "px-2"} ${invert ? "slash" : "diagonal"} inline-flex h-full relative items-center font-mono font-bold`}
+>
+  {
+    hasSlotContent && (
+      <span class={`${invert ? "pr-3" : "pl-3"} flex gap-1 items-center`}>
+        <slot />
+      </span>
+    )
+  }
+</div>
+
+<style>
+  .slash::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--height, 0px) / -2);
+    z-index: 10;
+    border-right: calc(var(--height, 0px) / 2) solid
+      var(--bg-color, transparent);
+    border-bottom: calc(var(--height, 0px)) solid transparent;
+  }
+  .diagonal::after {
+    content: "";
+    position: absolute;
+    right: calc(var(--height, 0px) / -2);
+    z-index: 10;
+    border-left: calc(var(--height, 0px) / 2) solid var(--bg-color, transparent);
+    border-bottom: calc(var(--height, 0px)) solid transparent;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    function updateCssVariables(element: HTMLElement) {
+      const height = element.offsetHeight;
+      const bgColor = window.getComputedStyle(element).backgroundColor;
+
+      element.style.setProperty("--height", `${height}px`);
+      element.style.setProperty("--bg-color", bgColor);
+    }
+
+    const diagonals = document.querySelectorAll<HTMLElement>(".diagonal");
+    const slashes = document.querySelectorAll<HTMLElement>(".slash");
+
+    diagonals.forEach((element) => {
+      updateCssVariables(element);
+
+      ["mouseenter", "mouseleave"].forEach((event) => {
+        element.addEventListener(event, () => updateCssVariables(element));
+      });
+    });
+    
+    slashes.forEach((element) => {
+      updateCssVariables(element);
+
+      ["mouseenter", "mouseleave"].forEach((event) => {
+        element.addEventListener(event, () => updateCssVariables(element));
+      });
+    });
+  });
+</script>

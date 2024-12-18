@@ -1,0 +1,24 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  className?: string;
+}
+
+const { id, title, className } = Astro.props as Props;
+const hasIcon = Astro.slots.has("icon");
+---
+
+<section id={id} class={`px-5 py-6 mb-16 max-w-[100%] w-[1000px] ${className}`}>
+  <h2 class="text-3xl mb-10 text-neutral-100 font-medium flex items-center">
+    {
+      hasIcon && (
+        <span class="mr-3">
+          <slot name="icon" />
+        </span>
+      )
+    }
+    {title}
+  </h2>
+  <slot />
+</section>
