@@ -3,7 +3,7 @@
   Título profesional (e.g., "Senior en proceso").
   Ubicación (opcional, pero puede ser útil indicar tu ciudad o país).
   Resumen profesional breve, destacando quién eres y qué ofreces.
-    Soy un desarrollador de software especializado en desarrollo web, con fortalezas en JavaScript, React, Tailwind CSS, PHP, MySQL y un sólido dominio de POO en Java. Me definen la constancia, la responsabilidad y la curiosidad, cualidades que me motivan a mantenerme actualizado.
+    Soy un desarrollador de software especializado en desarrollo web, con fortalezas en JavaScript, PHP y un sólido dominio de POO en Java. Me definen la constancia, la responsabilidad y la curiosidad, cualidades que me motivan a mantenerme actualizado.
 
     Busco consolidar mis conocimientos en backend y aspiro a crecer profesionalmente como desarrollador, aprendiendo inglés y alcanzando un nivel de excelencia.
   Frase: La humildad es la base solida de todas las virtudes (Confucio).

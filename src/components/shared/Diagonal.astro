@@ -6,8 +6,8 @@ interface Props {
 
 const { className, invert } = Astro.props as Props;
 const hasSlotContent = Astro.slots.default;
----
 
+---
 <div
   class={`${className} ${hasSlotContent ? "px-1" : "px-2"} ${invert ? "slash" : "diagonal"} inline-flex h-full relative items-center font-mono font-bold`}
 >

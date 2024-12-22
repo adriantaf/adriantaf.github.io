@@ -8,26 +8,62 @@ import Diagonal from "./shared/Diagonal.astro";
 
 <header class="p-2 pb-5">
   <div class="h-7 flex justify-between">
-    <div class="h-full inline-flex">
-      <Diagonal className="bg-green-400 text-slate-950">
-        <span class="mr-1"><Logo /></span> ATM
+    <div class="h-full inline-flex relative">
+      <Diagonal className="bg-green-400 text-slate-950 hover:bg-emerald-400">
+        <button id="btn-nav" class="inline-flex items-center h-full">
+          <span class="mr-1"><Logo /></span> ATM
+        </button>
       </Diagonal>
-      <Diagonal className="bg-transparent text-neutral-400 pl-2"
-        >Sobre mi</Diagonal
-      >
+      <Diagonal className="bg-transparent text-neutral-400 pl-2">
+        <span id="dynamic-text"></span>
+      </Diagonal>
+      <nav id="nav" class="hidden absolute left-0 bottom-9 bg-slate-800">
+        <ul>
+          <li>
+            <a class="flex px-4 py-2 hover:bg-slate-700" href="#proyectos">Proyectos</a>
+          </li>
+          <li>
+            <a class="flex px-4 py-2 hover:bg-slate-700" href="#experiencia"
+              >Experiencia</a>
+          </li>
+          <li>
+            <a class="flex px-4 py-2 hover:bg-slate-700" href="#habilidades"
+              >Habilidades</a>
+          </li>
+          <li>
+            <a class="flex px-4 py-2 hover:bg-slate-700" href="#educacion">Educación</a>
+          </li>
+          <li>
+            <a class="flex px-4 py-2 hover:bg-slate-700" href="#sobre-mi">Sobre mi</a>
+          </li>
+        </ul>
+      </nav>
     </div>
     <div class="h-full inline-flex flex-row-reverse">
-      <a href="#">
-        <Diagonal invert className="bg-neutral-50 text-slate-950">
+      <a href="mailto:atafoya863@gmail.com" target="_blank" rel="noopener noreferrer">
+        <Diagonal
+          invert
+          className="bg-neutral-100 text-slate-950 hover:bg-neutral-100"
+        >
           <Email />
         </Diagonal>
       </a>
-      <a href="#">
+      <a
+        href="https://www.linkedin.com/in/adriantaf/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:-translate-y-1"
+      >
         <Diagonal invert className="text-neutral-300 pr-3">
           <Linkedin />
         </Diagonal>
       </a>
-      <a href="#">
+      <a
+        href="https://github.com/adriantaf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:-translate-y-1"
+      >
         <Diagonal invert className="text-neutral-300 pr-2">
           <Github />
         </Diagonal>
@@ -35,3 +71,63 @@ import Diagonal from "./shared/Diagonal.astro";
     </div>
   </div>
 </header>
+
+<script>
+  window.addEventListener("load", () => {
+    function toggleNav() {
+      const nav = document.getElementById("nav");
+      if (nav?.classList.contains('flex')) {
+        nav.classList.add('hidden');
+        if (nav?.classList.contains('flex')) {
+          nav.classList.remove('flex');
+        }
+      } else {
+        nav?.classList.add('flex');
+        if (nav?.classList.contains('hidden')) {
+          nav.classList.remove('hidden');
+        }
+      }
+    }
+
+    const sectionTextMap = {
+      proyectos: "Proyectos",
+      experiencia: "Experiencia",
+      habilidades: "Habilidades",
+      educacion: "Educación",
+      "sobre-mi": "Sobre mi",
+    };
+
+    const dynamicText = document.getElementById("dynamic-text");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            const activeText = sectionTextMap[sectionId];
+
+            // Solo actualizar el texto si ha cambiado
+            if (activeText && dynamicText.textContent !== activeText) {
+              dynamicText.textContent = activeText;
+            }
+          }
+        });
+      },
+      {
+        rootMargin: "0px 0px -50% 0px", // Se activa cuando la sección está a mitad de camino
+        threshold: 0.2, // Cuando al menos el 20% de la sección es visible
+      },
+    );
+
+    // Observar todas las secciones
+    Object.keys(sectionTextMap).forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    document.getElementById("btn-nav")?.addEventListener("click", toggleNav);
+    document.getElementById("nav")?.addEventListener('click', toggleNav);
+  });
+</script>
