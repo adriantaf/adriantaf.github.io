@@ -3,6 +3,8 @@ dist/
 
 # generated types
 .astro/
+.vscode
+.github
 
 # dependencies
 node_modules/
