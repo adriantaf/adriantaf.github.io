@@ -5,6 +5,7 @@ dist/
 .astro/
 .vscode
 .github
+notes.txt
 
 # dependencies
 node_modules/
