@@ -4,46 +4,86 @@ import Github from "./icons/Github.astro";
 import Logo from "./icons/WebHook.astro";
 import Linkedin from "./icons/Linkedin.astro";
 import Diagonal from "./shared/Diagonal.astro";
+import Menu from "./icons/Menu.astro";
 ---
 
 <header class="p-2 pb-5">
-  <div class="h-7 flex justify-between">
+  <div class="h-8 sm:h-7 flex justify-between">
     <div class="h-full inline-flex relative">
-      <Diagonal className="bg-green-400 text-slate-950 hover:bg-emerald-400">
-        <button id="btn-nav" class="inline-flex items-center h-full">
-          <span class="mr-1"><Logo /></span> ATM
-        </button>
+      <button id="btn-nav" class="h-full">
+        <Diagonal
+          className="bg-zinc-700 z-10 relative text-neutral-50 transition-colors delay-100 ease-in hover:text-zinc-700 hover:bg-neutral-50"
+        >
+          <Menu className="" />
+        </Diagonal>
+      </button>
+      <Diagonal className="bg-green-400 text-slate-950 -ml-[15px]">
+        <span class="mr-1"><Logo /></span> ATM
       </Diagonal>
-      <Diagonal className="bg-transparent text-neutral-400 pl-2">
-        <span id="dynamic-text"></span>
+      <Diagonal
+        className="bg-transparent text-neutral-300 hidden sm:inline-flex"
+      >
+        <span id="dynamic-text" class="leading-none"></span>
       </Diagonal>
-      <nav id="nav" class="hidden absolute left-0 bottom-9 bg-slate-800">
+      <nav
+        id="nav"
+        class="-translate-x-[calc(100%+8px)] absolute z-[100] left-0 bottom-10 sm:bottom-9 bg-slate-800 transition-transform ease-in delay-75"
+      >
         <ul>
           <li>
-            <a class="flex px-4 py-2 hover:bg-slate-700" href="#proyectos">Proyectos</a>
+            <a
+              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
+              href="#init">Init</a
+            >
           </li>
           <li>
-            <a class="flex px-4 py-2 hover:bg-slate-700" href="#experiencia"
-              >Experiencia</a>
+            <a
+              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
+              href="#proyectos">Proyectos</a
+            >
           </li>
           <li>
-            <a class="flex px-4 py-2 hover:bg-slate-700" href="#habilidades"
-              >Habilidades</a>
+            <a
+              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
+              href="#experiencia">Experiencia</a
+            >
           </li>
           <li>
-            <a class="flex px-4 py-2 hover:bg-slate-700" href="#educacion">Educación</a>
+            <a
+              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
+              href="#tecnologias">Tecnologías</a
+            >
           </li>
           <li>
-            <a class="flex px-4 py-2 hover:bg-slate-700" href="#sobre-mi">Sobre mi</a>
+            <a
+              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
+              href="#habilidades">Habilidades</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
+              href="#educacion">Educación</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
+              href="#sobre-mi">Sobre mí</a
+            >
           </li>
         </ul>
       </nav>
     </div>
     <div class="h-full inline-flex flex-row-reverse">
-      <a href="mailto:atafoya863@gmail.com" target="_blank" rel="noopener noreferrer">
+      <a
+        href="mailto:atafoya863@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Diagonal
           invert
-          className="bg-neutral-100 text-slate-950 hover:bg-neutral-100"
+          className="bg-neutral-100 text-slate-950 transition-colors ease-in delay-100 hover:bg-blue-600 hover:text-neutral-50"
         >
           <Email />
         </Diagonal>
@@ -52,7 +92,7 @@ import Diagonal from "./shared/Diagonal.astro";
         href="https://www.linkedin.com/in/adriantaf/"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:-translate-y-1"
+        class="transition-transform delay-75 ease-in hover:-translate-y-1"
       >
         <Diagonal invert className="text-neutral-300 pr-3">
           <Linkedin />
@@ -62,7 +102,7 @@ import Diagonal from "./shared/Diagonal.astro";
         href="https://github.com/adriantaf"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:-translate-y-1"
+        class="transition-transform delay-75 ease-in hover:-translate-y-1"
       >
         <Diagonal invert className="text-neutral-300 pr-2">
           <Github />
@@ -76,25 +116,44 @@ import Diagonal from "./shared/Diagonal.astro";
   window.addEventListener("load", () => {
     function toggleNav() {
       const nav = document.getElementById("nav");
-      if (nav?.classList.contains('flex')) {
-        nav.classList.add('hidden');
-        if (nav?.classList.contains('flex')) {
-          nav.classList.remove('flex');
+
+      if (nav?.classList.contains("translate-x-0")) {
+        nav.classList.add("-translate-x-[calc(100%+8px)]");
+
+        if (nav?.classList.contains("translate-x-0")) {
+          nav.classList.remove("translate-x-0");
         }
       } else {
-        nav?.classList.add('flex');
-        if (nav?.classList.contains('hidden')) {
-          nav.classList.remove('hidden');
+        nav?.classList.add("translate-x-0");
+
+        if (nav?.classList.contains("-translate-x-[calc(100%+8px)]")) {
+          nav.classList.remove("-translate-x-[calc(100%+8px)]");
+        }
+      }
+    }
+
+    function closeMenu(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        const nav = document.getElementById("nav");
+        console.log(0);
+        if (nav?.classList.contains("translate-x-0")) {
+          nav.classList.add("-translate-x-[calc(100%+8px)]");
+
+          if (nav?.classList.contains("translate-x-0")) {
+            nav.classList.remove("translate-x-0");
+          }
         }
       }
     }
 
     const sectionTextMap = {
       proyectos: "Proyectos",
+      init: "Init",
       experiencia: "Experiencia",
+      tecnologias: "Tecnologías",
       habilidades: "Habilidades",
       educacion: "Educación",
-      "sobre-mi": "Sobre mi",
+      "sobre-mi": "Sobre mí",
     };
 
     const dynamicText = document.getElementById("dynamic-text");
@@ -106,7 +165,6 @@ import Diagonal from "./shared/Diagonal.astro";
             const sectionId = entry.target.id;
             const activeText = sectionTextMap[sectionId];
 
-            // Solo actualizar el texto si ha cambiado
             if (activeText && dynamicText.textContent !== activeText) {
               dynamicText.textContent = activeText;
             }
@@ -114,12 +172,11 @@ import Diagonal from "./shared/Diagonal.astro";
         });
       },
       {
-        rootMargin: "0px 0px -50% 0px", // Se activa cuando la sección está a mitad de camino
-        threshold: 0.2, // Cuando al menos el 20% de la sección es visible
+        rootMargin: "0px 0px -50% 0px",
+        threshold: 0.2,
       },
     );
 
-    // Observar todas las secciones
     Object.keys(sectionTextMap).forEach((id) => {
       const section = document.getElementById(id);
       if (section) {
@@ -128,6 +185,7 @@ import Diagonal from "./shared/Diagonal.astro";
     });
 
     document.getElementById("btn-nav")?.addEventListener("click", toggleNav);
-    document.getElementById("nav")?.addEventListener('click', toggleNav);
+    document.getElementById("nav")?.addEventListener("click", toggleNav);
+    document.addEventListener("keyup", (e) => closeMenu(e));
   });
 </script>

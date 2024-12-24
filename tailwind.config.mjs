@@ -6,6 +6,9 @@ export default {
 			fontFamily: {
         mono: ['UbuntuSansMono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
       },
+			minHeight: {
+				'full-main': 'calc(100dvh - 56px)'
+			}
 		},
 	},
 	plugins: [],

@@ -3,8 +3,8 @@ dist/
 
 # generated types
 .astro/
-.vscode
-.github
+.vscode/
+.github/
 notes.txt
 
 # dependencies
