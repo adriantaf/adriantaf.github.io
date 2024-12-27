@@ -5,6 +5,7 @@ import Logo from "./icons/WebHook.astro";
 import Linkedin from "./icons/Linkedin.astro";
 import Diagonal from "./shared/Diagonal.astro";
 import Menu from "./icons/Menu.astro";
+import Nav from "./Nav.astro";
 ---
 
 <header class="p-2 pb-5">
@@ -12,68 +13,20 @@ import Menu from "./icons/Menu.astro";
     <div class="h-full inline-flex relative">
       <button id="btn-nav" class="h-full">
         <Diagonal
-          className="bg-zinc-700 z-10 relative text-neutral-50 transition-colors delay-100 ease-in hover:text-zinc-700 hover:bg-neutral-50"
+          className="bg-neutral-800 text-slate-50 hover:bg-orange-500 dark:bg-zinc-700 z-10 relative dark:text-neutral-50 transition-colors delay-100 ease-in dark:hover:text-zinc-700 dark:hover:bg-neutral-50"
         >
           <Menu className="" />
         </Diagonal>
       </button>
-      <Diagonal className="bg-green-400 text-slate-950 -ml-[15px]">
+      <Diagonal className="bg-green-300 dark:bg-green-400 text-slate-950 -ml-[15px]">
         <span class="mr-1"><Logo /></span> ATM
       </Diagonal>
       <Diagonal
-        className="bg-transparent text-neutral-300 hidden sm:inline-flex"
+        className="bg-transparent text-neutral-700 dark:text-neutral-300 hidden sm:inline-flex"
       >
         <span id="dynamic-text" class="leading-none"></span>
       </Diagonal>
-      <nav
-        id="nav"
-        class="-translate-x-[calc(100%+8px)] absolute z-[100] left-0 bottom-10 sm:bottom-9 bg-slate-800 transition-transform ease-in delay-75"
-      >
-        <ul>
-          <li>
-            <a
-              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
-              href="#init">Init</a
-            >
-          </li>
-          <li>
-            <a
-              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
-              href="#proyectos">Proyectos</a
-            >
-          </li>
-          <li>
-            <a
-              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
-              href="#experiencia">Experiencia</a
-            >
-          </li>
-          <li>
-            <a
-              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
-              href="#tecnologias">Tecnologías</a
-            >
-          </li>
-          <li>
-            <a
-              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
-              href="#habilidades">Habilidades</a
-            >
-          </li>
-          <li>
-            <a
-              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
-              href="#educacion">Educación</a
-            >
-          </li>
-          <li>
-            <a
-              class="flex px-4 py-2 transition-colors ease-in delay-150 hover:bg-slate-700"
-              href="#sobre-mi">Sobre mí</a
-            >
-          </li>
-        </ul>
-      </nav>
+      <Nav />
     </div>
     <div class="h-full inline-flex flex-row-reverse">
       <a
@@ -83,7 +36,7 @@ import Menu from "./icons/Menu.astro";
       >
         <Diagonal
           invert
-          className="bg-neutral-100 text-slate-950 transition-colors ease-in delay-100 hover:bg-blue-600 hover:text-neutral-50"
+          className="bg-neutral-800 text-slate-50 dark:bg-neutral-100 dark:text-slate-950 transition-colors ease-in delay-100 hover:bg-blue-600 hover:text-neutral-50"
         >
           <Email />
         </Diagonal>
@@ -94,7 +47,7 @@ import Menu from "./icons/Menu.astro";
         rel="noopener noreferrer"
         class="transition-transform delay-75 ease-in hover:-translate-y-1"
       >
-        <Diagonal invert className="text-neutral-300 pr-3">
+        <Diagonal invert className="text-neutral-700 dark:text-neutral-300 pr-3">
           <Linkedin />
         </Diagonal>
       </a>
@@ -104,7 +57,7 @@ import Menu from "./icons/Menu.astro";
         rel="noopener noreferrer"
         class="transition-transform delay-75 ease-in hover:-translate-y-1"
       >
-        <Diagonal invert className="text-neutral-300 pr-2">
+        <Diagonal invert className="text-neutral-700 dark:text-neutral-300 pr-2">
           <Github />
         </Diagonal>
       </a>
@@ -118,7 +71,7 @@ import Menu from "./icons/Menu.astro";
       const nav = document.getElementById("nav");
 
       if (nav?.classList.contains("translate-x-0")) {
-        nav.classList.add("-translate-x-[calc(100%+8px)]");
+        nav.classList.add("-translate-x-[calc(100%+9px)]");
 
         if (nav?.classList.contains("translate-x-0")) {
           nav.classList.remove("translate-x-0");
@@ -126,8 +79,8 @@ import Menu from "./icons/Menu.astro";
       } else {
         nav?.classList.add("translate-x-0");
 
-        if (nav?.classList.contains("-translate-x-[calc(100%+8px)]")) {
-          nav.classList.remove("-translate-x-[calc(100%+8px)]");
+        if (nav?.classList.contains("-translate-x-[calc(100%+9px)]")) {
+          nav.classList.remove("-translate-x-[calc(100%+9px)]");
         }
       }
     }
@@ -135,7 +88,6 @@ import Menu from "./icons/Menu.astro";
     function closeMenu(e: KeyboardEvent) {
       if (e.key === "Escape") {
         const nav = document.getElementById("nav");
-        console.log(0);
         if (nav?.classList.contains("translate-x-0")) {
           nav.classList.add("-translate-x-[calc(100%+8px)]");
 
@@ -165,7 +117,9 @@ import Menu from "./icons/Menu.astro";
             const sectionId = entry.target.id;
             const activeText = sectionTextMap[sectionId];
 
-            if (activeText && dynamicText.textContent !== activeText) {
+            // sectionId !== "init"
+
+            if (activeText && dynamicText?.textContent !== activeText) {
               dynamicText.textContent = activeText;
             }
           }

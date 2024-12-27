@@ -4,6 +4,7 @@ dist/
 # generated types
 .astro/
 notes.txt
+find_unused.js
 
 # dependencies
 node_modules/
