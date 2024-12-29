@@ -1,10 +1,11 @@
 ---
-import BgVideo from "../assets/video/teclado.mp4";
+import BgVideoDark from "../assets/video/teclado.mp4";
+import BgVideo from "../assets/video/bg-light-1.mp4";
 import "./styles/Fonts.css";
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -18,7 +19,7 @@ import "./styles/Fonts.css";
 		<script src="../scripts/toggle_theme.js"></script>
 	</head>
 	<body
-		class="text-neutral-950 dark:text-neutral-100 font-mono relative bg-slate-100 dark:bg-slate-950 transition-colors delay-100"
+		class="text-neutral-950 dark:text-neutral-100 font-mono relative bg-slate-100 dark:bg-slate-950"
 	>
 		<video
 			id="bg-video"
@@ -26,9 +27,17 @@ import "./styles/Fonts.css";
 			autoplay
 			loop
 			class="h-dvh hidden dark:md:block z-10 object-cover w-full absolute top-0 left-0"
+			src={BgVideoDark}></video>
+		<video
+			id="bg-video"
+			muted
+			autoplay
+			loop
+			class="h-dvh dark:hidden md:block z-10 object-cover w-full absolute top-0 left-0"
 			src={BgVideo}></video>
 		<div
-			class="body-content h-dvh w-full z-[100] bg-slate-100 bg-opacity-90 dark:bg-slate-950 dark:bg-opacity-85 absolute top-0 left-0 transition-colors delay-100"
+			id="main-container"
+			class="body-content h-dvh w-full z-[100] bg-slate-100 bg-opacity-85 dark:bg-slate-950 dark:bg-opacity-75 absolute top-0 left-0"
 		>
 			<slot />
 		</div>
@@ -68,29 +77,29 @@ import "./styles/Fonts.css";
 		backdrop-filter: blur(12px);
 	}
 
-		/* Modo claro */
-		*::-webkit-scrollbar {
-			width: 14px;
-			background-color: rgba(100, 100, 100, 0.3);
-		}
-		*::-webkit-scrollbar-thumb {
-			background-color: rgba(100, 100, 100, 0.8);
-		}
-		*::-webkit-scrollbar-thumb:hover {
-			background-color: rgba(120, 120, 120, 1);
-		}
-		*::-webkit-scrollbar-thumb:active {
-			background-color: #936ed8;
-		}
+	/* Modo claro */
+	*::-webkit-scrollbar {
+		width: 14px;
+		background-color: rgba(100, 100, 100, 0.3);
+	}
+	*::-webkit-scrollbar-thumb {
+		background-color: rgba(100, 100, 100, 0.8);
+	}
+	*::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(120, 120, 120, 1);
+	}
+	*::-webkit-scrollbar-thumb:active {
+		background-color: #936ed8;
+	}
 
-		/* Default */
-		*::-webkit-scrollbar-track-piece:start {
-			background: transparent;
-		}
+	/* Default */
+	*::-webkit-scrollbar-track-piece:start {
+		background: transparent;
+	}
 
-		*::-webkit-scrollbar-track-piece:end {
-			background: transparent;
-		}
+	*::-webkit-scrollbar-track-piece:end {
+		background: transparent;
+	}
 
 	header {
 		grid-area: header;
