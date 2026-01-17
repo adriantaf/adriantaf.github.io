@@ -1,15 +1,12 @@
 ---
 import Book from "./icons/Book.astro";
 import Brain from "./icons/Brain.astro";
-import Dev from "./icons/Dev.astro";
 import Code from "./icons/Code.astro";
-import Email from "./icons/Email.astro";
 import Work from "./icons/Work.astro";
 import User from "./icons/User.astro";
 import Check from "./icons/Check.astro";
 import Section from "./shared/Section.astro";
 import imgHashiRamen from "../assets/img/screenshot-hr.png";
-import imgNikolaTesla from "../assets/img/img-nikola-tesla.webp";
 import imgLocOsLinux from "../assets/img/screenshot-lpl.png";
 import imgCloneSpotify from "../assets/img/screenshot-sp.png";
 import imgSafeBox from "../assets/img/screenshot-sb.png";
@@ -21,21 +18,8 @@ import SQLiteIcon from "./icons/SQLite.astro";
 import ElectronIcon from "./icons/Electron.astro";
 import Css from "./icons/Css.astro";
 import Js from "./icons/Js.astro";
-import JsLogo from "./logos/Js.astro";
 import Link from "./icons/Link.astro";
-import AstroLogo from "./logos/AstroLogo.astro";
-import Java from "./logos/Java.astro";
-import MySql from "./logos/MySql.astro";
-import SQLite from "./logos/SQLite.astro";
-import Electron from "./logos/Electron.astro";
-import Php from "./logos/Php.astro";
-import ReactLogo from "./logos/React.astro";
-import TailwindLogo from "./logos/Tailwind.astro";
-import Csharp from "./logos/Csharp.astro";
-import Cpp from "./logos/Cpp.astro";
-import SkillItem from "./shared/SkillItem.astro";
-import SkillContainer from "./shared/SkillContainer.astro";
-import Linux from "./logos/Linux.astro";
+import imgNikolaTesla from "../assets/img/nikola-tesla.webp";
 ---
 
 <main class="h-full overflow-hidden">
@@ -45,32 +29,15 @@ import Linux from "./logos/Linux.astro";
   >
     <section id="init" class="h-auto px-6 flex flex-col justify-center">
       <div
-        class="max-w-[700px] py-20 min-h-full-main h-auto flex flex-col justify-center"
+        class="max-w-[700px] py-20 md:min-h-full-main h-auto flex flex-col justify-center"
       >
-        <h2 class="text-5xl md:text-7xl dark:text-neutral-100 font-medium mb-2">
-          <span class="text-orange-950 dark:text-orange-100">A</span>drian <span
-            class="text-orange-950 dark:text-orange-100">T</span
-          >afoya <span class="text-orange-950 dark:text-orange-100">M</span>.
-        </h2>
-        <div class="py-2">
-          <p class="gap-2 md:text-lg">
-            Desarrollador de Software. Desde 2020, he combinado estudios
-            formales y aprendizaje autodidacta, especializándome en <i
-              >front-end</i
-            >
-            con una proyección hacia <i>full-stack</i>. Me apasiona crear
-            interfaces modernas y desarrollar soluciones prácticas que marquen
-            la diferencia.
-          </p>
-        </div>
-        <div class="mt-4">
-          <a
-            href="mailto:atafoya863@gmail.com"
-            class="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-slate-50 dark:border-orange-300 dark:text-orange-300 font-medium py-1 px-4 transition-colors ease-in delay-150 dark:hover:bg-orange-300 dark:hover:text-slate-950 inline-flex items-center gap-2"
-          >
-            <Email className="size-5" />
-            Contáctame
-          </a>
+        <div class="flex justify-center flex-col mb-6">
+          <h2 class="text-5xl md:text-8xl dark:text-neutral-100 font-medium">
+            <span class="text-orange-600 dark:text-orange-300">A</span>DRIAN <span
+              class="text-orange-600 dark:text-orange-300">T</span
+            ><span>AFOYA</span>
+          </h2>
+          <p class="gap-2 font-[500] md:text-2xl text-blue-600  dark:text-blue-300">Desarrollador de software</p>
         </div>
       </div>
     </section>
@@ -118,7 +85,7 @@ import Linux from "./logos/Linux.astro";
                 class="border-2 border-green-600 text-green-700 hover:bg-green-600 dark:border-green-400 hover:text-slate-50 dark:text-green-400 font-medium py-1 px-4 dark:hover:bg-green-400 transition-colors ease-in delay-150 dark:hover:text-slate-950 inline-flex items-center gap-2"
               >
                 <Link className="size-5" />
-                Descargas
+                Descargar
               </a>
               <a
                 href="https://github.com/adriantaf/safe-box/"
@@ -314,17 +281,32 @@ import Linux from "./logos/Linux.astro";
     <Section id="habilidades" title="Habilidades">
       <Brain className="size-8" slot="icon" />
       <div>
+        <h3 class="text-xl md:text-xl2 mb-3 md:mb-3 dark:text-neutral-100 font-medium flex items-center">
+          Habilidades blandas
+        </h3>
+        <ul class="space-y-2 list-[square] marker:text-red-500 pl-4 mb-5">
+          <li>Resolución de problemas</li>
+          <li>Trabajo en equipo</li>
+          <li>Buena comunicación</li>
+          <li>Honestidad</li>
+          <li>Creativo</li>
+          <li>Constante</li>
+          <li>Atención a los detalles / Trabajo bajo presión</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl md:text-xl2 mb-3 md:mb-3 dark:text-neutral-100 font-medium flex items-center">
+          Habilidades técnicas
+        </h3>
         <ul class="space-y-2 list-[square] marker:text-red-500 pl-4">
-          <li><strong>Programación estructurada</strong>: C++</li>
-          <li><strong>POO</strong>: Java</li>
-          <li><strong>Desktop</strong>: ElectronJS and Java</li>
-          <li><strong>Movil Apps (Android)</strong>: Flutter</li>
-          <li>
-            <strong>Linux</strong>: Uso doméstico y de terminal de distribuciones de Linux [2020 - 2024]
-          </li>
-          <li><strong>Front-end</strong>: Javascript, React, Astro y Tailwind</li>
-          <li><strong>Back-end</strong>: NodeJS & Express</li>
-          <li><strong>Data Base</strong> MySQL, SQLite and PostgreSQL</li>
+          <li>Programación estructurada con C++</li>
+          <li>Programación Orientada a Objetos</li>
+          <li>Apps de escritorio: ElectronJS y JavaSwing</li>
+          <li>Apps android: Flutter</li>
+          <li>Linux: Uso doméstico y de terminal</li>
+          <li>Front-end: Javascript, React, Astro y Tailwind</li>
+          <li>Back-end: ExpressJS</li>
+          <li>Base de datos: MySQL y SQLite</li>
         </ul>
       </div>
     </Section>
@@ -361,26 +343,14 @@ import Linux from "./logos/Linux.astro";
     </Section>
     <Section id="sobre-mi" title="Sobre mí" className="mb-0">
       <User className="size-8" slot="icon" />
-      <div>
+      <div class="mb-10">
         <p>
-          Desarrollador de Software. Desde 2020, he combinado estudios formales
-          y aprendizaje autodidacta, especializándome en desarrollo web con un
-          enfoque en <i>front-end</i> y una proyección hacia <i>full-stack</i>.
-          Me apasiona crear interfaces modernas y desarrollar soluciones
-          prácticas que marquen la diferencia, aprovechando mis fortalezas en
-          JavaScript, PHP y un sólido dominio de la Programación Orientada a
-          Objetos (POO) en Java.
-          <br />
-          <br />
-          Soy una persona creativa, ingeniosa y constante, cualidades que me motivan
-          a mantenerme actualizado. Aspiro a crecer profesionalmente como desarrollador
-          de software, aprendiendo inglés y alcanzando un nivel de excelencia en
-          esta rama.
+          Desde 2020, he combinado estudios formales y aprendizaje autodidacta, especializándome en desarrollo web con un enfoque en <i>front-end</i> y con una proyección hacia <i>full-stack</i>, tambien estoy abierto a ramas como desarrollo de apps moviles y de escritorio. Me gusta resolver problemas y crear soluciones prácticas mediante la programación.
         </p>
       </div>
 
       <!-- Frase -->
-      <!-- <div class="flex justify-center">
+      <div class="flex justify-center">
         <div
           class="h-auto py-10 md:mt-10 md:py-0 max-w-[700px] flex flex-col-reverse items-center justify-center md:items-center md:flex-row gap-6"
         >
@@ -389,7 +359,6 @@ import Linux from "./logos/Linux.astro";
               "El desarrollo progresivo del hombre depende vitalmente de las
               invenciones. Son el resultado más importante del cerebro
               creativo".
-              "La creatividad es inteligencia divirtiéndose."
             </p>
             <small
               class="block mt-4 text-sm text-right text-neutral-800 dark:text-neutral-200"
@@ -402,7 +371,7 @@ import Linux from "./logos/Linux.astro";
             alt="Imagen de Nikola Tesla"
           />
         </div>
-      </div> -->
+      </div> 
     </Section>
     <footer class="w-full flex justify-center px-5">
       <div class="container py-12 text-right">
