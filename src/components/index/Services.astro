@@ -1,5 +1,6 @@
 ---
 import LinkButton from "../ui/LinkButton.astro";
+import { SM } from "@/config/social_medias";
 ---
 
 <section id="services" class="px-4 py-24 mx-auto max-w-6xl container">
@@ -191,7 +192,8 @@ import LinkButton from "../ui/LinkButton.astro";
         <div class="mt-6">
           <LinkButton
             text="Solicitar consulta"
-            href="#"
+            href={SM.whatsapp.link}
+            blank={true}
             size="lg"
             className=" text-black group-hover:bg-white group-hover:border-white focus:ring-2 focus:ring-white/20  hover:shadow-lg  hover:shadow-blue-500/30"
             type="secondary"

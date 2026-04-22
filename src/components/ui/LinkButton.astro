@@ -6,6 +6,7 @@ interface Props {
   size?: "sm" | "md" | "lg";
   className?: string;
   textClassName?: string;
+  blank?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   size = "md",
   className = "",
   textClassName = "",
+  blank,
 } = Astro.props as Props;
 
 const base =
@@ -42,7 +44,12 @@ const classes = `${base} ${sizes[size]} ${variants[type]} ${className}`;
 const textClasses = `${baseText} ${textClassName}`;
 ---
 
-<a href={href} class={classes}>
+<a
+  href={href}
+  class={classes}
+  target={blank ? "_blank" : undefined}
+  rel={blank ? "noopener noreferrer" : undefined}
+>
   <span class={textClasses}>{text}</span>
 
   <span

@@ -1,6 +1,7 @@
 ---
-import { Routes } from "../../utils/routes";
+import { Routes } from "../../config/routes";
 import LinkButton from "../ui/LinkButton.astro";
+import { SM } from "@/config/social_medias";
 ---
 
 <header
@@ -30,7 +31,12 @@ import LinkButton from "../ui/LinkButton.astro";
     </nav>
 
     <div class="flex items-center gap-3">
-      <LinkButton href="#" text="Cuéntanos tu idea" className="px-4 py-2.5">
+      <LinkButton
+        blank={true}
+        href={SM.whatsapp.link}
+        text="Cuéntanos tu idea"
+        className="px-4 py-2.5"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"

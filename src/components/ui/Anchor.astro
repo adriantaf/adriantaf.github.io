@@ -1,9 +1,16 @@
 ---
-const { href, class: className } = Astro.props;
+interface Props {
+  href: string;
+  className?: string;
+  blank?: boolean;
+}
+const { href, className, blank } = Astro.props;
 ---
 
 <a
   href={href}
+  target={blank ? "_blank" : undefined}
+  rel={blank ? "noopener noreferrer" : undefined}
   class:list={[className, "hover:underline", "hover:text-black", "transition"]}
 >
   <slot />

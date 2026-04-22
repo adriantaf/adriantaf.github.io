@@ -1,5 +1,5 @@
 ---
-import { Routes } from "../../utils/routes.ts";
+import { Routes } from "../../config/routes.ts";
 import Anchor from "../ui/Anchor.astro";
 ---
 
@@ -29,7 +29,10 @@ import Anchor from "../ui/Anchor.astro";
             Routes.map((el) => {
               return (
                 <li>
-                  <Anchor href={el.href} class="text-black/60 hover:text-black">
+                  <Anchor
+                    href={el.href}
+                    className="text-black/60 hover:text-black"
+                  >
                     {el.title}
                   </Anchor>
                 </li>
@@ -48,12 +51,12 @@ import Anchor from "../ui/Anchor.astro";
 
         <ul class="flex flex-col gap-2 text-sm">
           <li>
-            <Anchor href="#" class="text-black/60 hover:text-black"
+            <Anchor href="#" className="text-black/60 hover:text-black"
               >Privacidad</Anchor
             >
           </li>
           <li>
-            <Anchor href="#" class="text-black/60 hover:text-black"
+            <Anchor href="#" className="text-black/60 hover:text-black"
               >Términos</Anchor
             >
           </li>
@@ -69,18 +72,24 @@ import Anchor from "../ui/Anchor.astro";
 
         <ul class="flex flex-col gap-2 text-sm">
           <li>
-            <Anchor href="#" class="text-black/60 hover:text-black"
-              >WhatsApp</Anchor
+            <Anchor
+              blank={true}
+              href="https://wa.me/526461363812"
+              className="text-black/60 hover:text-black">WhatsApp</Anchor
             >
           </li>
-          <li>
-            <Anchor href="#" class="text-black/60 hover:text-black"
-              >LinkedIn</Anchor
+          <!-- <li>
+            <Anchor
+              blank={true}
+              href="#"
+              className="text-black/60 hover:text-black">LinkedIn</Anchor
             >
-          </li>
+          </li> -->
           <li>
-            <Anchor href="#" class="text-black/60 hover:text-black"
-              >Email</Anchor
+            <Anchor
+              blank={true}
+              href="mailto:atafoya863@gmail.com"
+              className="text-black/60 hover:text-black">Email</Anchor
             >
           </li>
         </ul>

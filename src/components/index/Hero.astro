@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import ensenadaDigital from "../../assets/img/ensenada-baja-california-digitalizandose.png";
 import LinkButton from "../ui/LinkButton.astro";
+import { SM } from "@/config/social_medias";
 ---
 
 <section class="w-full bg-white">
@@ -31,7 +33,11 @@ import LinkButton from "../ui/LinkButton.astro";
       </p>
 
       <div class="fade opacity-0 translate-y-4 flex gap-4 flex-wrap mt-2">
-        <LinkButton href="#" text="Solicitar consulta">
+        <LinkButton
+          href={SM.whatsapp.link}
+          blank={true}
+          text="Solicitar consulta"
+        >
           <svg
             class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
             fill="currentColor"
@@ -43,15 +49,16 @@ import LinkButton from "../ui/LinkButton.astro";
           </svg>
         </LinkButton>
 
-        <LinkButton href="#" text="Ver servicios" type="secondary" />
+        <LinkButton href="/#services" text="Ver servicios" type="secondary" />
       </div>
     </div>
 
     <div class="relative fade w-full h-full opacity-0 translate-y-4">
-      <img
-        src={ensenadaDigital.src}
+      <Image
+        src={ensenadaDigital}
+        loading="eager"
         class="w-full h-full rounded-xl object-left-bottom object-cover"
-        alt="Ensenada digitalizándose"
+        alt="Ensenada Baja California digitalizándose, vista aerea panoramica"
       />
     </div>
   </div>

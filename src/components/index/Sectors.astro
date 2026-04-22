@@ -1,23 +1,28 @@
 ---
+import imgFerreteria from "../../assets/img/ferreteria-sin-sistema-de-inventario.jpg";
+import imgAutopartes from "../../assets/img/almacen-de-autopartes-sin-buena-gestion.jpg";
+import imgComercios from "../../assets/img/tienda-en-linea.jpg";
+import imgPyMES from "../../assets/img/sistema-empresarial-perzonalizado.jpg";
+
 const niches = [
   {
     title: "Ferreterías",
-    img: "...",
+    img: imgFerreteria.src,
     desc: "Controla inventario, ventas y catálogo en línea sin errores.",
   },
   {
     title: "Autopartes",
-    img: "...",
+    img: imgAutopartes.src,
     desc: "Catálogo avanzado y sistemas conectados para miles de piezas.",
   },
   {
     title: "Comercios",
-    img: "...",
+    img: imgComercios.src,
     desc: "Expande tu negocio con tienda en línea y gestión de pedidos.",
   },
   {
     title: "Empresas en crecimiento",
-    img: "...",
+    img: imgPyMES.src,
     desc: "Sistemas personalizados para automatizar procesos y escalar operaciones.",
   },
 ];
@@ -111,4 +116,6 @@ const niches = [
   </div>
 </section>
 
-<script type="module" src="/src/scripts/sectors.ts"></script>
+<script>
+  import "../../scripts/sectors.ts";
+</script>
