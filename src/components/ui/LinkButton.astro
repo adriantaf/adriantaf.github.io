@@ -1,0 +1,53 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  type?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
+  className?: string;
+  textClassName?: string;
+}
+
+const {
+  href,
+  text,
+  type = "primary",
+  size = "md",
+  className = "",
+  textClassName = "",
+} = Astro.props as Props;
+
+const base =
+  "group inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black/20";
+
+const sizes = {
+  sm: "px-4 py-2 text-xs",
+  md: "px-6 py-3 text-sm",
+  lg: "px-7 py-4 text-sm",
+};
+
+const variants = {
+  primary:
+    "bg-black text-white font-semibold shadow-md shadow-black/20 hover:shadow-lg hover:shadow-blue-400/30",
+
+  secondary:
+    "border border-black text-black font-medium hover:bg-black hover:text-white",
+
+  ghost: "text-black/60 font-medium hover:text-black hover:bg-black/5",
+};
+
+const baseText = "tracking-wide";
+
+const classes = `${base} ${sizes[size]} ${variants[type]} ${className}`;
+const textClasses = `${baseText} ${textClassName}`;
+---
+
+<a href={href} class={classes}>
+  <span class={textClasses}>{text}</span>
+
+  <span
+    class="flex items-center transition-transform duration-300 group-hover:translate-x-1"
+  >
+    <slot />
+  </span>
+</a>

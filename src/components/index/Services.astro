@@ -1,0 +1,214 @@
+---
+import LinkButton from "../ui/LinkButton.astro";
+---
+
+<section id="services" class="px-4 py-24 mx-auto max-w-6xl container">
+  <div class="mb-16 max-w-2xl">
+    <span class="text-sm uppercase tracking-wide text-black/50 font-medium">
+      Servicios
+    </span>
+
+    <h2
+      class="text-4xl md:text-5xl font-semibold tracking-tight text-black mt-3"
+    >
+      Soluciones para cada etapa de tu negocio
+    </h2>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 auto-rows">
+    <div
+      class="md:col-span-2 row-span-2 fade-scroll-l opacity-0 -translate-x-20 transition-all duration-700"
+    >
+      <article
+        class="transition-color h-full duration-300 group p-8 rounded-2xl border border-black/20 bg-black text-white flex flex-col justify-between"
+      >
+        <div>
+          <div
+            class="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 mb-6"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+              ><path
+                d="M208,136H48a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V152A16,16,0,0,0,208,136Zm0,64H48V152H208v48Zm0-160H48A16,16,0,0,0,32,56v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V56A16,16,0,0,0,208,40Zm0,64H48V56H208v48ZM192,80a12,12,0,1,1-12-12A12,12,0,0,1,192,80Zm0,96a12,12,0,1,1-12-12A12,12,0,0,1,192,176Z"
+              ></path></svg
+            >
+          </div>
+
+          <h3 class="text-2xl font-semibold tracking-tight mb-3">
+            Infraestructura web
+          </h3>
+
+          <p class="text-white/70 max-w-md leading-relaxed">
+            Plataformas web personalizadas diseñadas para gestionar alto volumen
+            de tráfico y distintos niveles de usuarios. No solo creamos sitios
+            web; desarrollamos herramientas que escalan con tu negocio.
+          </p>
+        </div>
+
+        <span class="text-sm text-white/50 mt-10">
+          Pensado para empresas en crecimiento
+        </span>
+      </article>
+    </div>
+
+    <div
+      class="fade-scroll-r opacity-0 translate-x-20 transition-all duration-700"
+    >
+      <article
+        class="group p-6 rounded-2xl border border-black/20 bg-white hover:bg-black hover:text-white transition-all duration-300 flex flex-col justify-between"
+      >
+        <div>
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-black/5 group-hover:bg-white/10 mb-4 transition duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-black group-hover:text-white transition-color duration-300"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+              ><path
+                d="M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z"
+              ></path></svg
+            >
+          </div>
+
+          <h3
+            class="text-lg font-semibold mb-2 group-hover:text-white transition-color duration-300"
+          >
+            Sistemas de inventario
+          </h3>
+
+          <p
+            class="text-sm text-black/60 group-hover:text-white/70 transition-color duration-300"
+          >
+            Plataformas de control de inventario diseñadas para negocios en
+            crecimiento. Monitorea stock en tiempo real, reduce errores
+            operativos y optimiza tu operación.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div
+      class="fade-scroll-r opacity-0 translate-x-20 transition-all duration-700"
+    >
+      <article
+        class="group p-6 rounded-2xl border border-black/20 bg-white hover:bg-black hover:text-white transition-all duration-300 flex flex-col justify-between"
+      >
+        <div>
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-black/5 group-hover:bg-white/10 mb-4 transition duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-black group-hover:text-white transition-color duration-300"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+              ><path
+                d="M248,168v32a8,8,0,0,1-16,0V187.31l-2.21,2.22C226.69,192.9,189.44,232,128,232c-62.84,0-100.38-40.91-101.95-42.65A8,8,0,0,1,38,178.65C38.27,179,72.5,216,128,216s89.73-37,90.07-37.36a3.85,3.85,0,0,1,.27-.3l2.35-2.34H208a8,8,0,0,1,0-16h32A8,8,0,0,1,248,168ZM160,94.53V84A36,36,0,0,0,91.92,67.64a8,8,0,0,1-14.25-7.28A52,52,0,0,1,176,84v92a8,8,0,0,1-16,0v-6.53a52,52,0,1,1,0-74.94ZM160,132a36,36,0,1,0-36,36A36,36,0,0,0,160,132Z"
+              ></path></svg
+            >
+          </div>
+
+          <h3
+            class="text-lg font-semibold mb-2 group-hover:text-white transition-color duration-300"
+          >
+            Tiendas en línea
+          </h3>
+
+          <p
+            class="text-sm text-black/60 group-hover:text-white/70 transition-color duration-300"
+          >
+            Plataformas de e-commerce diseñadas para escalar tu negocio. Desde
+            la gestión de productos hasta pagos y envíos, todo optimizado para
+            crecer sin fricción.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div
+      class="fade-scroll-l opacity-0 -translate-x-20 transition-all duration-700"
+    >
+      <article
+        class="group p-6 rounded-2xl border md:h-full border-black/20 bg-white hover:bg-black hover:text-white transition-all duration-300 flex flex-col justify-between"
+      >
+        <div>
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-black/5 group-hover:bg-white/10 mb-4 transition duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-black group-hover:text-white transition-color duration-300"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+              ><path
+                d="M216,40H72A16,16,0,0,0,56,56V72H40A16,16,0,0,0,24,88V200a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V184h16a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM184,88v16H40V88Zm0,112H40V120H184v80Zm32-32H200V88a16,16,0,0,0-16-16H72V56H216Z"
+              ></path></svg
+            >
+          </div>
+
+          <h3
+            class="text-lg font-semibold mb-2 group-hover:text-white transition-color duration-300"
+          >
+            Presencia digital para negocios
+          </h3>
+
+          <p
+            class="text-sm text-black/60 group-hover:text-white/70 transition-color duration-300"
+          >
+            Desarrollamos sitios web modernos para empresas, emprendedores y
+            profesionistas que buscan crecer y destacar en línea.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div
+      class="fade-scroll-r opacity-0 translate-x-20 transition-all duration-700 md:col-span-2"
+    >
+      <article
+        class="group p-8 rounded-2xl border border-black/20 bg-white hover:bg-black hover:text-white transition-all duration-300 flex flex-col justify-between"
+      >
+        <div>
+          <h3
+            class="text-xl font-semibold tracking-tight mb-3 group-hover:text-white transition-color duration-300"
+          >
+            ¿Tienes una idea o problema específico?
+          </h3>
+
+          <p
+            class="text-black/60 group-hover:text-white/70 max-w-md transition-color duration-300"
+          >
+            Diseñamos software a la medida para automatizar procesos, mejorar tu
+            operación o construir tu próxima aplicación.
+          </p>
+        </div>
+
+        <div class="mt-6">
+          <LinkButton
+            text="Solicitar consulta"
+            href="#"
+            size="lg"
+            className=" text-black group-hover:bg-white group-hover:border-white focus:ring-2 focus:ring-white/20  hover:shadow-lg  hover:shadow-blue-500/30"
+            type="secondary"
+            textClassName="text-black"
+          >
+            <svg
+              class="w-5 h-5 text-black"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+            >
+              <path
+                d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72Z"
+              ></path>
+            </svg>
+          </LinkButton>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

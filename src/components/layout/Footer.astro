@@ -1,0 +1,96 @@
+---
+import { Routes } from "../../utils/routes.ts";
+import Anchor from "../ui/Anchor.astro";
+---
+
+<footer class="border-t border-black/10 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex flex-wrap sm:flex-nowrap justify-between gap-10">
+      <div class="max-w-sm">
+        <p class="font-black text-lg tracking-tight mb-3">
+          Bahía Labs<span class="text-black/30">.</span>
+        </p>
+
+        <p class="text-black/60 leading-relaxed">
+          Brindando soluciones de software eficientes adaptadas a cada cliente,
+          cambiando el modelo tradicional.
+        </p>
+      </div>
+
+      <div>
+        <h4
+          class="text-sm font-semibold uppercase tracking-wide mb-3 text-black/70"
+        >
+          Navegación
+        </h4>
+
+        <ul class="flex flex-col gap-2 text-sm">
+          {
+            Routes.map((el) => {
+              return (
+                <li>
+                  <Anchor href={el.href} class="text-black/60 hover:text-black">
+                    {el.title}
+                  </Anchor>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4
+          class="text-sm font-semibold uppercase tracking-wide mb-3 text-black/70"
+        >
+          Legal
+        </h4>
+
+        <ul class="flex flex-col gap-2 text-sm">
+          <li>
+            <Anchor href="#" class="text-black/60 hover:text-black"
+              >Privacidad</Anchor
+            >
+          </li>
+          <li>
+            <Anchor href="#" class="text-black/60 hover:text-black"
+              >Términos</Anchor
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4
+          class="text-sm font-semibold uppercase tracking-wide mb-3 text-black/70"
+        >
+          Conecta
+        </h4>
+
+        <ul class="flex flex-col gap-2 text-sm">
+          <li>
+            <Anchor href="#" class="text-black/60 hover:text-black"
+              >WhatsApp</Anchor
+            >
+          </li>
+          <li>
+            <Anchor href="#" class="text-black/60 hover:text-black"
+              >LinkedIn</Anchor
+            >
+          </li>
+          <li>
+            <Anchor href="#" class="text-black/60 hover:text-black"
+              >Email</Anchor
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 pt-6 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-black/50"
+    >
+      <p>© 2026 Bahía Labs. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>

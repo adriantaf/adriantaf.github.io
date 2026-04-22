@@ -1,0 +1,114 @@
+---
+const niches = [
+  {
+    title: "Ferreterías",
+    img: "...",
+    desc: "Controla inventario, ventas y catálogo en línea sin errores.",
+  },
+  {
+    title: "Autopartes",
+    img: "...",
+    desc: "Catálogo avanzado y sistemas conectados para miles de piezas.",
+  },
+  {
+    title: "Comercios",
+    img: "...",
+    desc: "Expande tu negocio con tienda en línea y gestión de pedidos.",
+  },
+  {
+    title: "Empresas en crecimiento",
+    img: "...",
+    desc: "Sistemas personalizados para automatizar procesos y escalar operaciones.",
+  },
+];
+---
+
+<section class="w-full bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-24">
+    <div class="mb-12 max-w-2xl">
+      <span class="text-sm uppercase tracking-wide text-black/50">
+        Sectores
+      </span>
+
+      <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mt-3">
+        Empresas en crecimiento
+      </h2>
+
+      <p class="text-black/60 mt-4">
+        Automatiza procesos, conecta sistemas y escala tu operación con software
+        a la medida.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-6 md:hidden">
+      {
+        // movil
+        niches.map((item) => (
+          <div class="fade-scroll-l opacity-0 -translate-x-20 transition-all duration-700">
+            <article class="rounded-2xl overflow-hidden border border-black/20">
+              <img src={item.img} class="w-full h-48 object-cover" />
+
+              <div class="p-5">
+                <h3 class="text-lg font-semibold">{item.title}</h3>
+                <p class="text-sm text-black/60 mt-2">{item.desc}</p>
+              </div>
+            </article>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="hidden md:grid md:grid-cols-2 gap-10 items-stretch">
+      <div class="flex flex-col gap-3">
+        {
+          niches.map((item, i) => (
+            <div class="fade-scroll-l opacity-0 -translate-x-20 transition-all duration-700">
+              <div
+                class="niche-item group flex items-center justify-between px-5 py-4 rounded-xl border border-black/20 cursor-pointer hover:bg-black hover:text-white transition-all"
+                data-title={item.title}
+                data-img={item.img}
+                data-desc={item.desc}
+              >
+                <h4 class="font-medium">{item.title}</h4>
+
+                <svg
+                  class="w-4 h-4 text-black/40 group-hover:text-white transition-transform group-hover:translate-x-1"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80Z" />
+                </svg>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        class="fade-scroll-r opacity-0 translate-x-20 transition-all duration-700"
+      >
+        <div
+          class="relative rounded-2xl overflow-hidden border border-black/20"
+        >
+          <img
+            id="preview-img"
+            class="w-full h-full object-cover aspect-video transition-all duration-500"
+          />
+
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+          >
+          </div>
+
+          <div class="absolute bottom-6 left-6 text-white">
+            <h3 id="preview-title" class="text-2xl font-semibold"></h3>
+            <p id="preview-desc" class="text-white/90 mt-2 text-sm max-w-sm">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="/src/scripts/sectors.ts"></script>

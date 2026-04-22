@@ -1,0 +1,53 @@
+---
+import LinkButton from "../ui/LinkButton.astro";
+---
+
+<section id="contact" class="px-4 py-24">
+  <div class="max-w-6xl mx-auto">
+    <div
+      class="relative overflow-hidden rounded-2xl bg-black text-white p-10 md:p-16"
+    >
+      <div class="absolute inset-0 opacity-20">
+        <div
+          class="absolute right-0 top-0 w-[400px] h-full bg-white/10 blur-3xl"
+        >
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-2xl">
+        <h2
+          class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight"
+        >
+          ¿Listo para construir
+          <br />
+          tu solución digital?
+        </h2>
+
+        <p class="mt-6 text-white/70 text-lg leading-relaxed">
+          Analizamos tu negocio, detectamos oportunidades y diseñamos una
+          solución a la medida. Sin procesos complicados, solo resultados.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <LinkButton
+            text="Solicitar consulta"
+            href="#"
+            size="lg"
+            className=" text-black bg-white focus:ring-2 focus:ring-white/20  shadow-white/20  hover:shadow-blue-500/30"
+            textClassName="text-black"
+          >
+            <svg
+              class="w-5 h-5 text-black"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+            >
+              <path
+                d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72Z"
+              ></path>
+            </svg>
+          </LinkButton>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
