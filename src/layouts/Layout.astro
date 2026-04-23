@@ -7,11 +7,9 @@ interface Props {
   keywords: string;
   ogTitle: string;
   ogDescrition: string;
-  ogImage: string;
 }
 
-const { title, description, keywords, ogTitle, ogDescrition, ogImage } =
-  Astro.props;
+const { title, description, keywords, ogTitle, ogDescrition } = Astro.props;
 ---
 
 <!doctype html>
@@ -36,16 +34,16 @@ const { title, description, keywords, ogTitle, ogDescrition, ogImage } =
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
-    <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={ogDescrition} />
-    <meta property="og:image" content={ogImage} />
 
+    <meta property="og:title" content={ogTitle || title} />
+    <meta property="og:description" content={ogDescrition || description} />
+    <meta property="og:image" content="/bahia-labs.jpg" />
     <meta property="og:url" content="https://adriantaf.github.io" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://adriantaf.github.io" />
+    <link rel="canonical" href={Astro.url.href} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
