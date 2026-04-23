@@ -9,7 +9,20 @@ import { SM } from "@/config/social_medias";
   <div
     class="mx-auto max-w-6xl px-4 py-20 grid lg:grid-cols-2 gap-12 items-center"
   >
-    <div class="flex flex-col gap-8">
+    <div
+      class="relative fade w-full h-full opacity-0 translate-y-4 order-2 overflow-hidden"
+    >
+      <Image
+        src={ensenadaDigital}
+        loading="eager"
+        class="w-full h-full rounded-xl object-left-bottom object-cover"
+        alt="Ensenada Baja California digitalizándose, vista aerea panoramica"
+      />
+    </div>
+
+    <div
+      class="flex flex-col gap-8 fade-scroll-r opacity-0 translate-x-20 transition-all duration-700"
+    >
       <div
         class="fade opacity-0 translate-y-4 inline-flex items-center px-4 py-2 rounded-full bg-neutral-100 text-neutral-700 w-fit"
       >
@@ -51,15 +64,6 @@ import { SM } from "@/config/social_medias";
 
         <LinkButton href="/#services" text="Ver servicios" type="secondary" />
       </div>
-    </div>
-
-    <div class="relative fade w-full h-full opacity-0 translate-y-4">
-      <Image
-        src={ensenadaDigital}
-        loading="eager"
-        class="w-full h-full rounded-xl object-left-bottom object-cover"
-        alt="Ensenada Baja California digitalizándose, vista aerea panoramica"
-      />
     </div>
   </div>
 </section>

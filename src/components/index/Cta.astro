@@ -4,7 +4,9 @@ import LinkButton from "../ui/LinkButton.astro";
 ---
 
 <section id="contact" class="px-4 py-24">
-  <div class="max-w-6xl mx-auto">
+  <div
+    class="max-w-6xl mx-auto fade-scroll-up opacity-0 translate-y-14 transition-all duration-700"
+  >
     <div
       class="relative overflow-hidden rounded-2xl bg-black text-white p-10 md:p-16"
     >
@@ -31,7 +33,7 @@ import LinkButton from "../ui/LinkButton.astro";
 
         <div class="mt-10 flex flex-wrap gap-4">
           <LinkButton
-            text="Solicitar consulta"
+            text="Solicitar cotización"
             href={SM.whatsapp.link}
             blank={true}
             size="lg"

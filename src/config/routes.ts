@@ -8,11 +8,11 @@ export const Routes = [
     href: "/#services",
   },
   {
-    title: "¿Quiénes somos?",
-    href: "/#about-us",
+    title: "Nosotros",
+    href: "/about-us",
   },
   {
     title: "Contacto",
-    href: "/#contact",
+    href: "/contact",
   },
 ];

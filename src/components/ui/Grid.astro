@@ -1,0 +1,13 @@
+---
+interface Props {
+  cols: number;
+}
+
+const { cols } = Astro.props;
+
+const className = `grid md:grid-cols-${cols} gap-6 auto-rows`;
+---
+
+<div class={className}>
+  <slot />
+</div>

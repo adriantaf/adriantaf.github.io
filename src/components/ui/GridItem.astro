@@ -1,0 +1,105 @@
+---
+interface Props {
+  dark?: boolean;
+  animated?: boolean;
+  animationDirection?: "left" | "right" | "up";
+  title: string;
+  description?: string;
+  footer?: string;
+  gridCols?: number;
+  gridRows?: number;
+}
+
+const {
+  dark = false,
+  animated = false,
+  animationDirection,
+  title,
+  description,
+  footer,
+  gridCols = 1,
+  gridRows = 1,
+} = Astro.props;
+
+const gridColsSpan = `md:col-span-${gridCols}`;
+const gridRowsSpan = `row-span-${gridRows}`;
+---
+
+<div
+  class:list={[
+    gridColsSpan,
+    gridRowsSpan,
+    "h-full grid",
+    {
+      "opacity-0 transition-all duration-700": animated,
+      "fade-scroll-l -translate-x-20":
+        animated && animationDirection === "left",
+      "fade-scroll-r translate-x-20":
+        animated && animationDirection === "right",
+      "fade-scroll-up translate-y-14": animated && animationDirection === "up",
+    },
+  ]}
+>
+  <article
+    class:list={[
+      "h-full duration-300 group rounded-2xl border border-black/20 flex flex-col justify-between transition-all",
+      {
+        "bg-black text-white p-8": dark,
+        "bg-white text-black hover:bg-black hover:text-white p-6": !dark,
+      },
+    ]}
+  >
+    <div>
+      <slot name="icon" />
+
+      <h3
+        class:list={[
+          "font-semibold tracking-tight mb-3",
+          {
+            "text-2xl": dark === true,
+            "group-hover:text-white transition-color duration-300 text-lg":
+              dark != true,
+          },
+        ]}
+      >
+        {title}
+      </h3>
+
+      {
+        description != null ? (
+          <p
+            class:list={[
+              "max-w-md leading-relaxed",
+              {
+                "text-white/70": dark === true,
+                "text-black/60 group-hover:text-white/70 transition-color duration-300 text-sm":
+                  dark != true,
+              },
+            ]}
+          >
+            {description}
+          </p>
+        ) : null
+      }
+
+      <slot />
+    </div>
+
+    {
+      footer != null ? (
+        <span
+          class:list={[
+            "text-sm  mt-10",
+            {
+              "text-white/50": dark === true,
+              "text-black/40 group-hover:text-white/50 transition-color duration-300":
+                dark != true,
+            },
+          ]}
+        >
+          {footer}
+        </span>
+      ) : null
+    }
+  </article>
+</div>

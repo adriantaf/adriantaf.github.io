@@ -1,4 +1,6 @@
 ---
+import { Routes } from "@/config/routes";
+
 interface Props {
   title: string;
   description: string;
@@ -54,6 +56,7 @@ const { title, description, keywords, ogTitle, ogDescrition, ogImage } =
     <script>
       import "../scripts/scroll_animation.ts";
       import "../scripts/hero.ts";
+      import "../scripts/menu_movil.ts";
     </script>
     <style is:global>
       * {
@@ -63,6 +66,46 @@ const { title, description, keywords, ogTitle, ogDescrition, ogImage } =
   </head>
   <body class="font-sans flex flex-col min-h-screen">
     <slot />
+    <!-- menu movil -->
+    <div
+      class="md:hidden fixed right-3 items-end bottom-5 flex flex-col-reverse gap-2"
+    >
+      <button
+        id="menu-movil"
+        class="active:opacity-85 bg-black w-16 text-white shadow-md shadow-black/20 hover:shadow-lg hover:shadow-blue-400/30 group inline-flex items-center justify-center rounded-full transition-color duration-300 focus:outline-none focus:ring-2 border border-white/20 focus:ring-black/20 text-sm tracking-wide py-4 aspect-square"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="size-7"
+          fill="currentColor"
+          viewBox="0 0 256 256"
+          ><path
+            d="M128,96a32,32,0,1,0,32,32A32,32,0,0,0,128,96Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,144Zm0-64A32,32,0,1,0,96,48,32,32,0,0,0,128,80Zm0-48a16,16,0,1,1-16,16A16,16,0,0,1,128,32Zm0,144a32,32,0,1,0,32,32A32,32,0,0,0,128,176Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,224Z"
+          ></path></svg
+        >
+      </button>
+      <nav
+        id="nav-movil"
+        class="pointer-events-none opacity-0 translate-x-17 transition-all duration-300 ease-in-out rounded-2xl border border-black/20 bg-white ring-2 ring-white/40 py-2 shadow-md shadow-black/20"
+      >
+        <ul class="md:flex items-center gap-8">
+          {
+            Routes.map((el) => {
+              return (
+                <li>
+                  <a
+                    href={el.href}
+                    class="active:text-black transition duration-300 py-4 px-7 inline-block active:bg-black/20"
+                  >
+                    {el.title}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+    </div>
   </body>
   <script type="application/ld+json">
     {

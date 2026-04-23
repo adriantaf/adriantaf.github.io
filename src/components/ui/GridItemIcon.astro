@@ -1,0 +1,20 @@
+---
+interface Props {
+  dark?: boolean;
+}
+
+const { dark } = Astro.props;
+---
+
+<div
+  class:list={[
+    "w-12 h-12 flex items-center justify-center rounded-xl  mb-5",
+    {
+      "bg-white/10": dark === true,
+      "bg-black/5 group-hover:bg-white/10 transition duration-300":
+        dark != true,
+    },
+  ]}
+>
+  <slot />
+</div>

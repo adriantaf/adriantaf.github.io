@@ -20,7 +20,7 @@ const {
 } = Astro.props as Props;
 
 const base =
-  "group inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black/20";
+  "group inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black/20 text-sm tracking-wide";
 
 const sizes = {
   sm: "px-4 py-2 text-xs",
@@ -30,12 +30,11 @@ const sizes = {
 
 const variants = {
   primary:
-    "bg-black text-white font-semibold shadow-md shadow-black/20 hover:shadow-lg hover:shadow-blue-400/30",
+    "bg-black text-white shadow-md shadow-black/20 hover:shadow-lg hover:shadow-blue-400/30",
 
-  secondary:
-    "border border-black text-black font-medium hover:bg-black hover:text-white",
+  secondary: "border border-black text-black hover:bg-black hover:text-white",
 
-  ghost: "text-black/60 font-medium hover:text-black hover:bg-black/5",
+  ghost: "text-black/60 hover:text-black hover:bg-black/5",
 };
 
 const baseText = "tracking-wide";
