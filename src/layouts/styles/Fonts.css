@@ -1,57 +1,13 @@
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
 
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-Italic.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-BoldItalic.ttf") format("truetype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-MediumItalic.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "UbuntuSansMono";
-  src: url("../../assets/fonts/UbuntuSansMono-SemiBoldItalic.ttf")
-    format("truetype");
-  font-weight: 600;
-  font-style: italic;
+:root {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-text: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-bg: #f5f5f7;
+  --color-bg-elevated: #ffffff;
+  --color-accent: #0071e3;
+  --color-accent-hover: #0077ed;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --nav-height: 3.25rem;
 }

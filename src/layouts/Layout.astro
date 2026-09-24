@@ -1,6 +1,4 @@
 ---
-import BgVideoDark from "../assets/video/teclado.mp4";
-import BgVideo from "../assets/video/bg-light-1.mp4";
 import "./styles/Fonts.css";
 ---
 
@@ -8,107 +6,83 @@ import "./styles/Fonts.css";
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="Portafolio de Adrian Tafoya, desarrollador web y de software. Explora mis proyectos destacados."
+			content="Adrian Tafoya — desarrollador de software. Diseño e implemento productos web y desktop con interfaces claras y detalle de producto."
 		/>
+		<meta name="theme-color" content="#f5f5f7" />
 		<title>Adrian Tafoya | Portafolio</title>
-		<script src="../scripts/toggle_theme.js"></script>
 	</head>
-	<body
-		class="text-neutral-950 dark:text-neutral-100 font-mono relative bg-slate-100 dark:bg-slate-950"
-	>
-		<video
-			id="bg-video"
-			muted
-			autoplay
-			loop
-			class="h-dvh hidden dark:md:block z-10 object-cover w-full absolute top-0 left-0"
-			src={BgVideoDark}></video>
-		<video
-			id="bg-video"
-			muted
-			autoplay
-			loop
-			class="h-dvh hidden md:block dark:md:hidden z-10 object-cover w-full absolute top-0 left-0"
-			src={BgVideo}></video>
-		<div
-			id="main-container"
-			class="body-content h-dvh w-full z-[100] bg-slate-100 bg-opacity-85 dark:bg-slate-950 dark:bg-opacity-75 absolute top-0 left-0"
-		>
+	<body class="font-sans text-ink bg-canvas antialiased">
+		<div class="page-bg" aria-hidden="true"></div>
+		<div class="relative z-10 min-h-dvh">
 			<slot />
 		</div>
 	</body>
 </html>
 
-<script>
-	const video = document.getElementById("bg-video") as HTMLVideoElement;
-	if (video) {
-		video.playbackRate = 0.5;
-	}
-
-	document.body.focus();
-</script>
-
 <style is:global>
 	* {
 		scroll-behavior: smooth;
 	}
+
 	html,
 	body {
-		height: 100%;
-		width: 100dvw;
-		overflow: hidden;
 		margin: 0;
+		min-height: 100%;
 	}
 
-	.body-content {
-		overflow: hidden;
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: auto;
-		grid-template-areas:
-			"main"
-			"main"
-			"header";
-		backdrop-filter: blur(12px);
+	body {
+		overflow-x: hidden;
 	}
 
-	/* Modo claro */
-	*::-webkit-scrollbar {
-		width: 14px;
-		background-color: rgba(100, 100, 100, 0.3);
-	}
-	*::-webkit-scrollbar-thumb {
-		background-color: rgba(100, 100, 100, 0.8);
-	}
-	*::-webkit-scrollbar-thumb:hover {
-		background-color: rgba(120, 120, 120, 1);
-	}
-	*::-webkit-scrollbar-thumb:active {
-		background-color: #936ed8;
+	.page-bg {
+		pointer-events: none;
+		position: fixed;
+		inset: 0;
+		z-index: 0;
+		background:
+			radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 113, 227, 0.08), transparent 55%),
+			radial-gradient(ellipse 60% 40% at 100% 50%, rgba(0, 0, 0, 0.03), transparent 50%),
+			linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 40%, #eef0f3 100%);
 	}
 
-	/* Default */
-	*::-webkit-scrollbar-track-piece:start {
-		background: transparent;
+	.reveal {
+		opacity: 0;
+		transform: translateY(16px);
+		filter: blur(4px);
+		transition:
+			opacity 0.7s ease,
+			transform 0.7s ease,
+			filter 0.7s ease;
 	}
 
-	*::-webkit-scrollbar-track-piece:end {
-		background: transparent;
+	.reveal.is-visible {
+		opacity: 1;
+		transform: translateY(0);
+		filter: blur(0);
 	}
 
-	header {
-		grid-area: header;
-	}
-	aside {
-		grid-area: aside;
-	}
-	main {
-		width: 100%;
-		grid-area: main;
+	::selection {
+		background: rgba(0, 113, 227, 0.18);
 	}
 </style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("is-visible");
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+	);
+
+	document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

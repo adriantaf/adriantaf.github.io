@@ -1,145 +1,119 @@
 ---
-import Email from "./icons/Email.astro";
-import Github from "./icons/Github.astro";
-import Logo from "./icons/WebHook.astro";
-import Linkedin from "./icons/Linkedin.astro";
-import Diagonal from "./shared/Diagonal.astro";
-import Menu from "./icons/Menu.astro";
-import Nav from "./Nav.astro";
 ---
 
-<header class="p-2 pb-5">
-  <div class="h-8 sm:h-7 flex justify-between">
-    <div class="h-full inline-flex relative">
-      <button id="btn-nav" class="h-full">
-        <Diagonal
-          className="bg-neutral-800 text-slate-50 hover:bg-orange-500 dark:bg-zinc-700 z-10 relative dark:text-neutral-50 transition-colors delay-100 ease-in dark:hover:text-zinc-700 dark:hover:bg-neutral-50"
-        >
-          <Menu className="" />
-        </Diagonal>
-      </button>
-      <Diagonal className="bg-green-300 dark:bg-green-400 text-slate-950 -ml-[15px]">
-        <span class="mr-1"><Logo /></span> ATM
-      </Diagonal>
-      <Diagonal
-        className="bg-transparent text-neutral-700 dark:text-neutral-300 hidden sm:inline-flex"
-      >
-        <span id="dynamic-text" class="leading-none"></span>
-      </Diagonal>
-      <Nav />
-    </div>
-    <div class="h-full inline-flex flex-row-reverse">
-      <a
-        href="mailto:atafoya863@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Diagonal
-          invert
-          className="bg-neutral-800 text-slate-50 dark:bg-neutral-100 dark:text-slate-950 transition-colors ease-in delay-100 hover:bg-blue-600 hover:text-neutral-50"
-        >
-          <Email />
-        </Diagonal>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/adriantaf/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-transform delay-75 ease-in hover:-translate-y-1"
-      >
-        <Diagonal invert className="text-neutral-700 dark:text-neutral-300 pr-3">
-          <Linkedin />
-        </Diagonal>
-      </a>
-      <a
-        href="https://github.com/adriantaf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-transform delay-75 ease-in hover:-translate-y-1"
-      >
-        <Diagonal invert className="text-neutral-700 dark:text-neutral-300 pr-2">
-          <Github />
-        </Diagonal>
-      </a>
-    </div>
-  </div>
+<header
+	id="site-header"
+	class="sticky top-0 z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300"
+>
+	<div class="mx-auto flex h-[3.25rem] max-w-content items-center justify-between px-5 md:px-6">
+		<a href="#hero" class="text-[15px] font-semibold tracking-tight text-ink">
+			Adrian Tafoya
+		</a>
+
+		<nav class="hidden items-center gap-7 md:flex" aria-label="Principal">
+			<a class="nav-link" href="#work">Trabajo</a>
+			<a class="nav-link" href="#about">Sobre mí</a>
+			<a class="nav-link" href="#stack">Stack</a>
+			<a
+				href="mailto:atafoya863@gmail.com"
+				class="rounded-full bg-accent px-3.5 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-accent-hover"
+			>
+				Contacto
+			</a>
+		</nav>
+
+		<button
+			id="btn-menu"
+			type="button"
+			class="inline-flex h-9 w-9 items-center justify-center rounded-full text-ink md:hidden"
+			aria-expanded="false"
+			aria-controls="mobile-nav"
+			aria-label="Abrir menú"
+		>
+			<span class="sr-only">Menú</span>
+			<svg id="icon-menu" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+				<path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+			</svg>
+			<svg id="icon-close" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+				<path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+			</svg>
+		</button>
+	</div>
+
+	<nav
+		id="mobile-nav"
+		class="hidden border-t border-black/5 bg-canvas/95 px-5 py-4 backdrop-blur-xl md:hidden"
+		aria-label="Móvil"
+	>
+		<ul class="flex flex-col gap-1 text-[15px]">
+			<li><a class="mobile-link" href="#work">Trabajo</a></li>
+			<li><a class="mobile-link" href="#about">Sobre mí</a></li>
+			<li><a class="mobile-link" href="#stack">Stack</a></li>
+			<li>
+				<a
+					class="mt-2 inline-flex rounded-full bg-accent px-4 py-2 text-[13px] font-medium text-white"
+					href="mailto:atafoya863@gmail.com"
+				>
+					Contacto
+				</a>
+			</li>
+		</ul>
+	</nav>
 </header>
 
+<style>
+	.nav-link {
+		font-size: 13px;
+		font-weight: 500;
+		color: #6e6e73;
+		transition: color 0.2s ease;
+	}
+	.nav-link:hover {
+		color: #1d1d1f;
+	}
+	.mobile-link {
+		display: block;
+		padding: 0.65rem 0;
+		font-weight: 500;
+		color: #1d1d1f;
+	}
+	#site-header.is-scrolled {
+		border-color: rgba(0, 0, 0, 0.06);
+		background-color: rgba(251, 251, 253, 0.78);
+		backdrop-filter: saturate(180%) blur(20px);
+		-webkit-backdrop-filter: saturate(180%) blur(20px);
+	}
+</style>
+
 <script>
-  window.addEventListener("load", () => {
-    function toggleNav() {
-      const nav = document.getElementById("nav");
+	const header = document.getElementById("site-header");
+	const btn = document.getElementById("btn-menu");
+	const mobileNav = document.getElementById("mobile-nav");
+	const iconMenu = document.getElementById("icon-menu");
+	const iconClose = document.getElementById("icon-close");
 
-      if (nav?.classList.contains("translate-x-0")) {
-        nav.classList.add("-translate-x-[calc(100%+9px)]");
+	function setScrolled() {
+		if (!header) return;
+		header.classList.toggle("is-scrolled", window.scrollY > 8);
+	}
 
-        if (nav?.classList.contains("translate-x-0")) {
-          nav.classList.remove("translate-x-0");
-        }
-      } else {
-        nav?.classList.add("translate-x-0");
+	function setMenuOpen(open: boolean) {
+		mobileNav?.classList.toggle("hidden", !open);
+		iconMenu?.classList.toggle("hidden", open);
+		iconClose?.classList.toggle("hidden", !open);
+		btn?.setAttribute("aria-expanded", String(open));
+		btn?.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+	}
 
-        if (nav?.classList.contains("-translate-x-[calc(100%+9px)]")) {
-          nav.classList.remove("-translate-x-[calc(100%+9px)]");
-        }
-      }
-    }
+	window.addEventListener("scroll", setScrolled, { passive: true });
+	setScrolled();
 
-    function closeMenu(e: KeyboardEvent) {
-      if (e.key === "Escape") {
-        const nav = document.getElementById("nav");
-        if (nav?.classList.contains("translate-x-0")) {
-          nav.classList.add("-translate-x-[calc(100%+8px)]");
+	btn?.addEventListener("click", () => {
+		const open = btn.getAttribute("aria-expanded") !== "true";
+		setMenuOpen(open);
+	});
 
-          if (nav?.classList.contains("translate-x-0")) {
-            nav.classList.remove("translate-x-0");
-          }
-        }
-      }
-    }
-
-    const sectionTextMap = {
-      proyectos: "Proyectos",
-      init: "Init",
-      experiencia: "Experiencia",
-      tecnologias: "Tecnologías",
-      habilidades: "Habilidades",
-      educacion: "Educación",
-      "sobre-mi": "Sobre mí",
-    };
-
-    const dynamicText = document.getElementById("dynamic-text");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.id;
-            const activeText = sectionTextMap[sectionId];
-
-            // sectionId !== "init"
-
-            if (activeText && dynamicText?.textContent !== activeText) {
-              dynamicText.textContent = activeText;
-            }
-          }
-        });
-      },
-      {
-        rootMargin: "0px 0px -50% 0px",
-        threshold: 0.2,
-      },
-    );
-
-    Object.keys(sectionTextMap).forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) {
-        observer.observe(section);
-      }
-    });
-
-    document.getElementById("btn-nav")?.addEventListener("click", toggleNav);
-    document.getElementById("nav")?.addEventListener("click", toggleNav);
-    document.addEventListener("keyup", (e) => closeMenu(e));
-  });
+	mobileNav?.querySelectorAll("a").forEach((link) => {
+		link.addEventListener("click", () => setMenuOpen(false));
+	});
 </script>
