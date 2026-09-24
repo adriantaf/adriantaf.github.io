@@ -1,122 +1,114 @@
 ---
-import { Routes } from "@/config/routes";
-
-interface Props {
-  title: string;
-  description: string;
-  keywords: string;
-  ogTitle: string;
-  ogDescrition: string;
-}
-
-const { title, description, keywords, ogTitle, ogDescrition } = Astro.props;
+import BgVideoDark from "../assets/video/teclado.mp4";
+import BgVideo from "../assets/video/bg-light-1.mp4";
+import "./styles/Fonts.css";
 ---
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/favicon-light.png"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/favicon-dark.png"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-
-    <meta property="og:title" content={ogTitle || title} />
-    <meta property="og:description" content={ogDescrition || description} />
-    <meta property="og:image" content="/bahia-labs.jpg" />
-    <meta property="og:url" content="https://adriantaf.github.io" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={Astro.url.href} />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      import "../scripts/scroll_animation.ts";
-      import "../scripts/hero.ts";
-      import "../scripts/menu_movil.ts";
-    </script>
-    <style is:global>
-      * {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-  <body class="font-sans flex flex-col min-h-screen">
-    <slot />
-    <!-- menu movil -->
-    <div
-      class="md:hidden fixed right-3 items-end bottom-5 flex flex-col-reverse gap-2"
-    >
-      <button
-        id="menu-movil"
-        class="active:opacity-85 bg-black w-16 text-white shadow-md shadow-black/20 hover:shadow-lg hover:shadow-blue-400/30 group inline-flex items-center justify-center rounded-full transition-color duration-300 focus:outline-none focus:ring-2 border border-white/20 focus:ring-black/20 text-sm tracking-wide py-4 aspect-square"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="size-7"
-          fill="currentColor"
-          viewBox="0 0 256 256"
-          ><path
-            d="M128,96a32,32,0,1,0,32,32A32,32,0,0,0,128,96Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,144Zm0-64A32,32,0,1,0,96,48,32,32,0,0,0,128,80Zm0-48a16,16,0,1,1-16,16A16,16,0,0,1,128,32Zm0,144a32,32,0,1,0,32,32A32,32,0,0,0,128,176Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,224Z"
-          ></path></svg
-        >
-      </button>
-      <nav
-        id="nav-movil"
-        class="pointer-events-none opacity-0 translate-x-17 transition-all duration-300 ease-in-out rounded-2xl border border-black/20 bg-white ring-2 ring-white/40 py-2 shadow-md shadow-black/20"
-      >
-        <ul class="md:flex items-center gap-8">
-          {
-            Routes.map((el) => {
-              return (
-                <li>
-                  <a
-                    href={el.href}
-                    class="active:text-black transition duration-300 py-4 px-7 inline-block active:bg-black/20"
-                  >
-                    {el.title}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </nav>
-    </div>
-  </body>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Bahía Labs",
-      "url": "https://adriantaf.github.io",
-      "areaServed": "Ensenada, Baja California",
-      "description": "Desarrollo de software, páginas web y sistemas de inventario en Ensenada.",
-      "sameAs": [
-        "https://wa.me/526461363812",
-        "https://mailto:atafoya863@gmail.com"
-      ]
-    }
-  </script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Portafolio de Adrian Tafoya, desarrollador web y de software. Explora mis proyectos destacados."
+		/>
+		<title>Adrian Tafoya | Portafolio</title>
+		<script src="../scripts/toggle_theme.js"></script>
+	</head>
+	<body
+		class="text-neutral-950 dark:text-neutral-100 font-mono relative bg-slate-100 dark:bg-slate-950"
+	>
+		<video
+			id="bg-video"
+			muted
+			autoplay
+			loop
+			class="h-dvh hidden dark:md:block z-10 object-cover w-full absolute top-0 left-0"
+			src={BgVideoDark}></video>
+		<video
+			id="bg-video"
+			muted
+			autoplay
+			loop
+			class="h-dvh hidden md:block dark:md:hidden z-10 object-cover w-full absolute top-0 left-0"
+			src={BgVideo}></video>
+		<div
+			id="main-container"
+			class="body-content h-dvh w-full z-[100] bg-slate-100 bg-opacity-85 dark:bg-slate-950 dark:bg-opacity-75 absolute top-0 left-0"
+		>
+			<slot />
+		</div>
+	</body>
 </html>
+
+<script>
+	const video = document.getElementById("bg-video") as HTMLVideoElement;
+	if (video) {
+		video.playbackRate = 0.5;
+	}
+
+	document.body.focus();
+</script>
+
+<style is:global>
+	* {
+		scroll-behavior: smooth;
+	}
+	html,
+	body {
+		height: 100%;
+		width: 100dvw;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.body-content {
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"main"
+			"main"
+			"header";
+		backdrop-filter: blur(12px);
+	}
+
+	/* Modo claro */
+	*::-webkit-scrollbar {
+		width: 14px;
+		background-color: rgba(100, 100, 100, 0.3);
+	}
+	*::-webkit-scrollbar-thumb {
+		background-color: rgba(100, 100, 100, 0.8);
+	}
+	*::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(120, 120, 120, 1);
+	}
+	*::-webkit-scrollbar-thumb:active {
+		background-color: #936ed8;
+	}
+
+	/* Default */
+	*::-webkit-scrollbar-track-piece:start {
+		background: transparent;
+	}
+
+	*::-webkit-scrollbar-track-piece:end {
+		background: transparent;
+	}
+
+	header {
+		grid-area: header;
+	}
+	aside {
+		grid-area: aside;
+	}
+	main {
+		width: 100%;
+		grid-area: main;
+	}
+</style>

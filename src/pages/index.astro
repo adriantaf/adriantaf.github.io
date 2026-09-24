@@ -1,18 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/layout/Header.astro";
-import Footer from "../components/layout/Footer.astro";
-import MainIndex from "../components/layout/MainIndex.astro";
+import Header from "../components/Header.astro";
+import Main from "../components/Main.astro";
 ---
 
-<Layout
-  title="Desarrollo de Software en Ensenada | Bahía Labs"
-  description="Creamos páginas web, sistemas de inventario y tiendas en línea a la medida en Ensenada. Automatiza tu negocio, mejora tu control y vende en todo México."
-  keywords="desarrollo web ensenada, software ensenada, sistemas de inventario ensenada, tiendas en linea mexico, paginas web ensenada, desarrollo de software baja california"
-  ogTitle="Bahía Labs | Software a la medida en Ensenada"
-  ogDescrition="Desarrollamos soluciones de software para negocios: sitios web, sistemas de inventario y plataformas digitales."
->
-  <Header />
-  <MainIndex />
-  <Footer />
+<Layout>
+	<Header />
+	<Main />
 </Layout>
