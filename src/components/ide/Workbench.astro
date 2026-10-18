@@ -1,0 +1,116 @@
+---
+import TitleBar from "./TitleBar.astro";
+import ActivityBar from "./ActivityBar.astro";
+import Explorer from "./Explorer.astro";
+import TabBar from "./TabBar.astro";
+import StatusBar from "./StatusBar.astro";
+---
+
+<div class="flex h-dvh flex-col overflow-hidden bg-mk-chrome">
+	<TitleBar />
+	<div class="relative flex min-h-0 flex-1">
+		<ActivityBar />
+		<Explorer />
+		<div class="flex min-w-0 flex-1 flex-col bg-mk-editor">
+			<TabBar />
+			<div id="editor-scroll" class="min-h-0 flex-1 overflow-y-auto overflow-x-hidden">
+				<slot />
+			</div>
+		</div>
+	</div>
+	<StatusBar />
+</div>
+
+<script>
+	const scrollRoot = document.getElementById("editor-scroll");
+	const tabs = document.querySelectorAll<HTMLAnchorElement>(".ide-tab");
+	const files = document.querySelectorAll<HTMLAnchorElement>(".explorer-item");
+	const statusLn = document.getElementById("status-ln");
+	const sidebar = document.getElementById("ide-sidebar");
+	const btnSidebar = document.getElementById("btn-sidebar");
+	const btnSidebarClose = document.getElementById("btn-sidebar-close");
+
+	const sectionIds = [
+		"hero",
+		"work",
+		"safebox",
+		"spotify-clon",
+		"hashi-ramen",
+		"loc-os-linux",
+		"about",
+		"stack",
+		"contact",
+	];
+
+	function setActive(id: string) {
+		tabs.forEach((tab) => {
+			tab.classList.toggle("is-active", tab.dataset.tab === id);
+		});
+		files.forEach((file) => {
+			file.classList.toggle("is-active", file.dataset.file === id);
+		});
+	}
+
+	function setSidebarOpen(open: boolean) {
+		sidebar?.classList.toggle("hidden", !open);
+		sidebar?.classList.toggle("flex", open);
+		btnSidebar?.setAttribute("aria-expanded", String(open));
+	}
+
+	btnSidebar?.addEventListener("click", () => {
+		const open = btnSidebar.getAttribute("aria-expanded") !== "true";
+		setSidebarOpen(open);
+	});
+	btnSidebarClose?.addEventListener("click", () => setSidebarOpen(false));
+
+	files.forEach((file) => {
+		file.addEventListener("click", () => {
+			if (window.matchMedia("(max-width: 767px)").matches) {
+				setSidebarOpen(false);
+			}
+		});
+	});
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			const visible = entries
+				.filter((e) => e.isIntersecting)
+				.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+			if (visible?.target?.id) {
+				setActive(visible.target.id);
+			}
+		},
+		{ root: scrollRoot, rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.4, 0.7] },
+	);
+
+	sectionIds.forEach((id) => {
+		const el = document.getElementById(id);
+		if (el) observer.observe(el);
+	});
+
+	scrollRoot?.addEventListener(
+		"scroll",
+		() => {
+			if (!statusLn || !scrollRoot) return;
+			const line = Math.max(1, Math.floor(scrollRoot.scrollTop / 22) + 1);
+			statusLn.textContent = String(line);
+		},
+		{ passive: true },
+	);
+
+	// Hash links scroll inside the editor pane (body is overflow:hidden)
+	document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
+		anchor.addEventListener("click", (e) => {
+			const id = anchor.getAttribute("href")?.slice(1);
+			if (!id || !scrollRoot) return;
+			const target = document.getElementById(id);
+			if (!target) return;
+			e.preventDefault();
+			target.scrollIntoView({ behavior: "smooth", block: "start" });
+			history.replaceState(null, "", `#${id}`);
+			setActive(id);
+		});
+	});
+
+	setActive("hero");
+</script>

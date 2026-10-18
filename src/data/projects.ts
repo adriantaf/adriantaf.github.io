@@ -7,8 +7,8 @@ export type ProjectLink = {
 export type Project = {
 	id: string;
 	name: string;
+	fileName: string;
 	tag: "Producto" | "Cliente" | "Personal";
-	stage: number;
 	date: string;
 	description: string;
 	tech: string[];
@@ -21,8 +21,8 @@ export const projects: Project[] = [
 	{
 		id: "safebox",
 		name: "SafeBox",
+		fileName: "safebox.ts",
 		tag: "Producto",
-		stage: 1,
 		date: "Febrero 2025",
 		description:
 			"Gestor de contraseñas local para equipos que no quieren secretos en la nube. App de escritorio con cifrado en dispositivo, interfaz sencilla y almacenamiento en SQLite.",
@@ -31,18 +31,18 @@ export const projects: Project[] = [
 		imageAlt: "Captura de SafeBox, gestor de contraseñas de escritorio",
 		links: [
 			{
-				label: "DESCARGAR",
+				label: "Download",
 				href: "https://github.com/adriantaf/safe-box/releases",
 				primary: true,
 			},
-			{ label: "CODIGO", href: "https://github.com/adriantaf/safe-box/" },
+			{ label: "Código", href: "https://github.com/adriantaf/safe-box/" },
 		],
 	},
 	{
 		id: "spotify-clon",
 		name: "Spotify clon",
+		fileName: "spotify.ts",
 		tag: "Personal",
-		stage: 2,
 		date: "Diciembre 2024",
 		description:
 			"Clon front-end de Spotify para practicar UI compleja: navegación con React Router, estado global con Context API y una experiencia visual cercana al producto real.",
@@ -51,18 +51,18 @@ export const projects: Project[] = [
 		imageAlt: "Captura del clon de Spotify",
 		links: [
 			{
-				label: "PREVIEW",
+				label: "Preview",
 				href: "https://spotifymx.vercel.app/",
 				primary: true,
 			},
-			{ label: "CODIGO", href: "https://github.com/adriantaf/spotify" },
+			{ label: "Código", href: "https://github.com/adriantaf/spotify" },
 		],
 	},
 	{
 		id: "hashi-ramen",
 		name: "Hashi Ramen & Pho",
+		fileName: "hashi-ramen.ts",
 		tag: "Cliente",
-		stage: 3,
 		date: "Septiembre 2024",
 		description:
 			"Sitio oficial de un restaurante local: inicio y menú alimentado por JSON, diseño limpio y listo para móvil. Entrega real para un negocio en Plaza Las Olas.",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
 		imageAlt: "Captura del sitio de Hashi Ramen & Pho",
 		links: [
 			{
-				label: "PREVIEW",
+				label: "Preview",
 				href: "https://hashiramen.vercel.app/",
 				primary: true,
 			},
@@ -80,8 +80,8 @@ export const projects: Project[] = [
 	{
 		id: "loc-os-linux",
 		name: "Loc-OS Linux",
+		fileName: "loc-os.ts",
 		tag: "Cliente",
-		stage: 4,
 		date: "2021",
 		description:
 			"Rediseño de la página de la distribución Loc-OS Linux para el canal Locos por Linux. Tema oscuro con acentos amarillos; el diseño estuvo en uso durante 2021.",
@@ -90,11 +90,11 @@ export const projects: Project[] = [
 		imageAlt: "Captura del rediseño de Loc-OS Linux",
 		links: [
 			{
-				label: "PREVIEW",
+				label: "Preview",
 				href: "https://adriantaf.github.io/loc-os-linux/",
 				primary: true,
 			},
-			{ label: "CODIGO", href: "https://github.com/adriantaf/loc-os-linux" },
+			{ label: "Código", href: "https://github.com/adriantaf/loc-os-linux" },
 		],
 	},
 ];
@@ -108,4 +108,18 @@ export const stack = [
 	"SQLite",
 	"MySQL",
 	"Express",
+];
+
+export const explorerFiles = [
+	{ id: "hero", label: "welcome.ts", href: "#hero" },
+	{ id: "work", label: "projects/", href: "#work", folder: true },
+	...projects.map((p) => ({
+		id: p.id,
+		label: p.fileName,
+		href: `#${p.id}`,
+		nested: true,
+	})),
+	{ id: "about", label: "about.md", href: "#about" },
+	{ id: "stack", label: "stack.json", href: "#stack" },
+	{ id: "contact", label: "contact.ts", href: "#contact" },
 ];

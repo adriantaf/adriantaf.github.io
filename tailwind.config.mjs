@@ -4,43 +4,33 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				pixel: ['"Press Start 2P"', 'ui-monospace', 'monospace'],
-				mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+				mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
 			},
 			colors: {
-				crt: {
-					DEFAULT: '#0a0e17',
-					panel: '#0f1522',
-					bezel: '#1a2336',
+				mk: {
+					chrome: '#1a1b17',
+					editor: '#1e1f1c',
+					fg: '#f8f8f2',
+					comment: '#75715e',
+					accent: '#75715e',
+					keyword: '#f92672',
+					string: '#e6db74',
+					fn: '#a6e22e',
+					type: '#66d9ef',
+					number: '#ae81ff',
+					param: '#fd971f',
+					selection: '#49483e',
+					line: '#3e3d32',
+					border: '#2a2b24',
 				},
-				ink: {
-					DEFAULT: '#e8f0ff',
-					muted: '#a8b4cc',
-				},
-				cyan: {
-					DEFAULT: '#00e5ff',
-					dim: 'rgba(0, 229, 255, 0.15)',
-				},
-				amber: {
-					DEFAULT: '#ffbf00',
-					dim: 'rgba(255, 191, 0, 0.15)',
-				},
-			},
-			maxWidth: {
-				content: '980px',
 			},
 			animation: {
-				blink: 'blink 1.2s steps(2, start) infinite',
-				'fade-up': 'fadeUp 0.55s ease-out both',
+				'cursor-blink': 'cursorBlink 1.1s step-end infinite',
 			},
 			keyframes: {
-				blink: {
+				cursorBlink: {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0' },
-				},
-				fadeUp: {
-					'0%': { opacity: '0', transform: 'translateY(12px)' },
-					'100%': { opacity: '1', transform: 'translateY(0)' },
 				},
 			},
 		},

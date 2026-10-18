@@ -1,14 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
 
 :root {
-  --font-pixel: "Press Start 2P", ui-monospace, monospace;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --color-crt: #0a0e17;
-  --color-crt-panel: #0f1522;
-  --color-text: #e8f0ff;
-  --color-text-muted: #a8b4cc;
-  --color-cyan: #00e5ff;
-  --color-amber: #ffbf00;
-  --color-bezel: #1a2336;
-  --nav-height: 3.5rem;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Monokai Modern Contrast */
+  --mk-chrome: #1a1b17;
+  --mk-editor: #1e1f1c;
+  --mk-fg: #f8f8f2;
+  --mk-comment: #75715e;
+  --mk-accent: #75715e;
+  --mk-keyword: #f92672;
+  --mk-string: #e6db74;
+  --mk-function: #a6e22e;
+  --mk-type: #66d9ef;
+  --mk-number: #ae81ff;
+  --mk-param: #fd971f;
+  --mk-selection: #49483e;
+  --mk-line-hl: #3e3d32;
+  --mk-border: #2a2b24;
+
+  --activity-w: 48px;
+  --sidebar-w: 240px;
+  --title-h: 36px;
+  --tab-h: 35px;
+  --status-h: 22px;
 }

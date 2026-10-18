@@ -1,5 +1,4 @@
 ---
-import Header from "./Header.astro";
 import Section from "./shared/Section.astro";
 import { projects, stack } from "../data/projects";
 import imgSafeBox from "../assets/img/screenshot-sb.png";
@@ -13,140 +12,134 @@ const images: Record<string, ImageMetadata> = {
 	"screenshot-hr.png": imgHashi,
 	"screenshot-lpl.png": imgLocOs,
 };
-
-function stageLabel(n: number) {
-	return `STAGE ${String(n).padStart(2, "0")}`;
-}
 ---
 
-<Header />
+<div class="mx-auto w-full max-w-4xl pb-8">
+	<section id="hero" class="border-b border-mk-border px-4 py-12 md:px-8 md:py-16">
+		<div class="mb-6 flex items-center gap-2 text-[12px] text-mk-comment">
+			<span class="text-mk-param">portfolio</span>
+			<span>&gt;</span>
+			<span class="text-mk-fg">welcome.ts</span>
+		</div>
 
-<main>
-	<section
-		id="hero"
-		class="relative mx-auto flex min-h-[calc(100dvh-3.5rem)] w-full max-w-content flex-col justify-center px-4 py-16 md:px-6 md:py-24"
-	>
-		<p
-			class="pointer-events-none absolute right-4 top-6 font-pixel text-[8px] text-amber md:right-6 md:top-10 md:text-[9px]"
-			aria-hidden="true"
-		>
-			HI-SCORE 2025
-		</p>
+		<pre
+			class="overflow-x-auto text-[13px] leading-7 md:text-[14px] md:leading-8"
+			aria-label="Presentación"
+		><code><span class="syn-cmt">// Monokai Modern Contrast · portfolio</span>
+<span class="syn-kw">const</span> <span class="syn-fg">developer</span> <span class="syn-fg">=</span> <span class="syn-fg">{"{"}</span>
+  <span class="syn-fg">name:</span> <span class="syn-str">"Adrian Tafoya"</span><span class="syn-fg">,</span>
+  <span class="syn-fg">role:</span> <span class="syn-str">"Software developer"</span><span class="syn-fg">,</span>
+  <span class="syn-fg">focus:</span> <span class="syn-fg">[</span><span class="syn-str">"web"</span><span class="syn-fg">,</span> <span class="syn-str">"desktop"</span><span class="syn-fg">],</span>
+<span class="syn-fg">{"}"};</span>
 
-		<div class="max-w-3xl animate-fade-up">
-			<p class="mb-5 font-pixel text-[10px] text-cyan md:text-[11px]">
-				PLAYER 1
-			</p>
-			<h1 class="font-pixel text-[22px] leading-[1.45] text-ink md:text-[36px] md:leading-[1.4]">
-				ADRIAN<br class="md:hidden" /> TAFOYA
-			</h1>
-			<p class="mt-6 font-pixel text-[9px] leading-relaxed text-amber md:text-[11px]">
-				SOFTWARE · WEB · DESKTOP
-			</p>
-			<p class="mt-5 max-w-lg text-[15px] leading-relaxed text-ink-muted md:text-[17px]">
-				Diseño e implemento productos web y desktop con interfaces claras y detalle de producto.
-			</p>
-			<div class="mt-10 flex flex-wrap items-center gap-3">
-				<a href="#work" class="arcade-btn arcade-btn-primary">
-					[ PRESS START ]
-				</a>
-				<a href="mailto:atafoya863@gmail.com" class="arcade-btn arcade-btn-secondary">
-					[ INSERT COIN ]
-				</a>
-			</div>
-			<p class="arcade-blink mt-8 font-pixel text-[8px] text-ink-muted md:text-[9px]">
-				INSERT COIN TO PLAY<span class="text-cyan">_</span>
-			</p>
+<span class="syn-cmt">/** Diseño e implemento productos web y desktop</span>
+<span class="syn-cmt"> *  con interfaces claras y detalle de producto.</span>
+<span class="syn-cmt"> */</span>
+<span class="syn-kw">export</span> <span class="syn-kw">function</span> <span class="syn-fn">run</span><span class="syn-fg">()</span> <span class="syn-fg">{"{"}</span>
+  <span class="syn-kw">return</span> <span class="syn-str">"open projects"</span><span class="syn-fg">;</span>
+<span class="syn-fg">{"}"}</span><span class="cursor-caret" aria-hidden="true"></span></code></pre>
+
+		<div class="mt-8 flex flex-wrap gap-2">
+			<a href="#work" class="ide-btn ide-btn-primary">Run projects</a>
+			<a href="mailto:atafoya863@gmail.com" class="ide-btn ide-btn-secondary">Open mail</a>
 		</div>
 	</section>
 
-	<Section
-		id="work"
-		title="STAGE SELECT"
-		subtitle="Cuatro piezas que mejor representan cómo pienso el producto: utilidad, interfaz y entrega."
-	>
-		<div class="flex flex-col gap-16 md:gap-24">
-			{
-				projects.map((project, index) => {
-					const img = images[project.image];
-					const reverse = index % 2 === 1;
-					return (
-						<article
-							class:list={[
-								"reveal grid items-start gap-6 md:grid-cols-2 md:gap-12",
-								reverse && "md:[&>div:first-child]:order-2",
-							]}
-						>
-							<div class="group relative border-2 border-cyan bg-crt-panel p-1 shadow-[4px_4px_0_rgba(0,229,255,0.25)]">
-								<span class="absolute -top-3 left-3 z-10 bg-crt px-2 font-pixel text-[8px] text-amber">
-									{stageLabel(project.stage)}
-								</span>
-								<img
-									src={img.src}
-									alt={project.imageAlt}
-									width={img.width}
-									height={img.height}
-									loading={index === 0 ? "eager" : "lazy"}
-									class="h-auto w-full object-cover"
-								/>
-							</div>
-							<div>
-								<div class="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-ink-muted">
-									<span class="border border-cyan/40 bg-cyan-dim px-2 py-0.5 font-pixel text-[8px] text-cyan">
-										{project.tag.toUpperCase()}
-									</span>
-									<span>{project.date}</span>
-								</div>
-								<h3 class="font-pixel text-[13px] leading-relaxed text-ink md:text-[16px]">
-									{project.name}
-								</h3>
-								<p class="mt-4 text-[15px] leading-relaxed text-ink-muted md:text-[16px]">
-									{project.description}
-								</p>
-								<ul class="mt-5 flex flex-wrap gap-2">
-									{project.tech.map((tech) => (
-										<li class="border border-crt-bezel bg-crt-panel px-2 py-1 font-mono text-[12px] text-ink-muted">
-											{tech}
-										</li>
-									))}
-								</ul>
-								<div class="mt-7 flex flex-wrap gap-3">
-									{project.links.map((link) =>
-										link.primary ? (
-											<a
-												href={link.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="arcade-btn arcade-btn-primary !text-[8px]"
-											>
-												[ {link.label} ]
-											</a>
-										) : (
-											<a
-												href={link.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="arcade-btn arcade-btn-secondary !text-[8px]"
-											>
-												[ {link.label} ]
-											</a>
-										),
-									)}
-								</div>
-							</div>
-						</article>
-					);
-				})
-			}
-		</div>
+	<Section id="work" fileName="projects/">
+		<h2 class="mb-2 text-[18px] font-semibold text-mk-fg md:text-[20px]">
+			<span class="syn-kw">export</span> <span class="syn-kw">const</span>
+			<span class="syn-fn"> projects</span>
+		</h2>
+		<p class="mb-8 max-w-2xl text-[13px] leading-relaxed text-mk-comment md:text-[14px]">
+			Cuatro piezas que mejor representan cómo pienso el producto: utilidad, interfaz y entrega.
+		</p>
 	</Section>
 
-	<Section
-		id="about"
-		title="PLAYER PROFILE"
-		subtitle="De Ensenada, con base en sistemas y un gusto por el detalle de interfaz."
-	>
-		<div class="reveal max-w-2xl space-y-5 border-2 border-crt-bezel bg-crt-panel p-5 text-[15px] leading-relaxed text-ink-muted md:p-8 md:text-[16px]">
+	{
+		projects.map((project, index) => {
+			const img = images[project.image];
+			const reverse = index % 2 === 1;
+			return (
+				<section
+					id={project.id}
+					class="border-b border-mk-border px-4 py-10 md:px-8 md:py-12"
+				>
+					<div class="mb-5 flex items-center gap-2 text-[12px] text-mk-comment">
+						<span class="text-mk-param">portfolio</span>
+						<span>&gt;</span>
+						<span class="text-mk-comment">projects</span>
+						<span>&gt;</span>
+						<span class="text-mk-fg">{project.fileName}</span>
+					</div>
+					<article
+						class:list={[
+							"grid items-start gap-6 md:grid-cols-2 md:gap-8",
+							reverse && "md:[&>div:first-child]:order-2",
+						]}
+					>
+						<div class="overflow-hidden border border-mk-border bg-mk-chrome">
+							<img
+								src={img.src}
+								alt={project.imageAlt}
+								width={img.width}
+								height={img.height}
+								loading={index === 0 ? "eager" : "lazy"}
+								class="h-auto w-full object-cover"
+							/>
+						</div>
+						<div>
+							<div class="mb-3 flex flex-wrap items-center gap-2 text-[12px]">
+								<span class="bg-mk-line px-2 py-0.5 text-mk-type">{project.tag}</span>
+								<span class="text-mk-number">{project.date}</span>
+							</div>
+							<h3 class="text-[18px] font-semibold text-mk-fn md:text-[22px]">
+								{project.name}
+							</h3>
+							<p class="mt-3 text-[13px] leading-relaxed text-mk-fg/85 md:text-[14px]">
+								{project.description}
+							</p>
+							<ul class="mt-4 flex flex-wrap gap-1.5">
+								{project.tech.map((tech) => (
+									<li class="border border-mk-border bg-mk-chrome px-2 py-0.5 text-[11px] text-mk-type">
+										{tech}
+									</li>
+								))}
+							</ul>
+							<div class="mt-5 flex flex-wrap gap-2">
+								{project.links.map((link) =>
+									link.primary ? (
+										<a
+											href={link.href}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="ide-btn ide-btn-primary"
+										>
+											{link.label}
+										</a>
+									) : (
+										<a
+											href={link.href}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="ide-btn ide-btn-ghost"
+										>
+											{link.label}
+										</a>
+									),
+								)}
+							</div>
+						</div>
+					</article>
+				</section>
+			);
+		})
+	}
+
+	<Section id="about" fileName="about.md">
+		<h2 class="mb-4 text-[18px] font-semibold text-mk-fg md:text-[20px]">
+			<span class="syn-fn">#</span> Sobre mí
+		</h2>
+		<div class="max-w-2xl space-y-4 text-[13px] leading-relaxed text-mk-fg/85 md:text-[14px]">
 			<p>
 				Estudié Ingeniería en Sistemas en el Instituto Tecnológico de Ensenada y Técnico en
 				Programación en el CBTIS 41. Desde 2020 combino formación formal con aprendizaje
@@ -164,89 +157,54 @@ function stageLabel(n: number) {
 		</div>
 	</Section>
 
-	<Section
-		id="stack"
-		title="POWER-UPS"
-		subtitle="Herramientas con las que construyo hoy."
-		className="pb-8 md:pb-12"
-	>
-		<ul class="reveal flex flex-wrap gap-2.5 md:gap-3">
+	<Section id="stack" fileName="stack.json">
+		<h2 class="mb-4 text-[18px] font-semibold text-mk-fg md:text-[20px]">
+			<span class="syn-fg">{"{"}</span> <span class="syn-str">"stack"</span>
+			<span class="syn-fg">:</span> <span class="syn-fg">[</span>
+		</h2>
+		<ul class="flex flex-wrap gap-2">
 			{
 				stack.map((item) => (
-					<li class="border-2 border-cyan/30 bg-cyan-dim px-3 py-2 font-pixel text-[8px] text-cyan md:text-[9px]">
-						{item.toUpperCase()}
+					<li class="border border-mk-border bg-mk-chrome px-3 py-1.5 text-[12px] text-mk-string">
+						"{item}"
 					</li>
 				))
 			}
 		</ul>
+		<p class="mt-3 text-mk-fg"><span class="syn-fg">]</span> <span class="syn-fg">{"}"}</span></p>
 	</Section>
 
-	<section id="contact" class="mx-auto w-full max-w-content px-4 pb-20 pt-8 md:px-6 md:pb-28">
-		<div
-			class="reveal border-2 border-amber bg-crt-panel px-6 py-12 text-center shadow-[6px_6px_0_rgba(255,191,0,0.35)] md:px-14 md:py-16"
-		>
-			<h2 class="font-pixel text-[16px] leading-relaxed text-amber md:text-[22px]">
-				CONTINUE?
-			</h2>
-			<p class="mx-auto mt-5 max-w-md text-[15px] leading-relaxed text-ink-muted md:text-[16px]">
-				Cuéntame sobre tu idea o proyecto. Respondo por email.
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-				<a
-					href="mailto:atafoya863@gmail.com"
-					class="arcade-btn arcade-btn-primary !text-[8px]"
-				>
-					[ EMAIL ]
-				</a>
-				<a
-					href="https://www.linkedin.com/in/adriantaf/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="arcade-btn arcade-btn-secondary !text-[8px]"
-				>
-					[ LINKEDIN ]
-				</a>
-				<a
-					href="https://github.com/adriantaf"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="arcade-btn arcade-btn-secondary !text-[8px]"
-				>
-					[ GITHUB ]
-				</a>
-			</div>
+	<Section id="contact" fileName="contact.ts" className="border-b-0">
+		<pre class="mb-6 overflow-x-auto text-[13px] leading-7 md:text-[14px]"><code><span class="syn-kw">export</span> <span class="syn-kw">async</span> <span class="syn-kw">function</span> <span class="syn-fn">contact</span><span class="syn-fg">(</span><span class="syn-param">message</span><span class="syn-fg">:</span> <span class="syn-type">string</span><span class="syn-fg">)</span> <span class="syn-fg">{"{"}</span>
+  <span class="syn-cmt">// Cuéntame sobre tu idea o proyecto</span>
+  <span class="syn-kw">return</span> <span class="syn-fn">send</span><span class="syn-fg">(</span><span class="syn-str">"atafoya863@gmail.com"</span><span class="syn-fg">,</span> <span class="syn-param">message</span><span class="syn-fg">);</span>
+<span class="syn-fg">{"}"}</span></code></pre>
+		<div class="flex flex-wrap gap-2">
+			<a href="mailto:atafoya863@gmail.com" class="ide-btn ide-btn-primary">Email</a>
+			<a
+				href="https://www.linkedin.com/in/adriantaf/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="ide-btn ide-btn-ghost"
+			>
+				LinkedIn
+			</a>
+			<a
+				href="https://github.com/adriantaf"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="ide-btn ide-btn-ghost"
+			>
+				GitHub
+			</a>
+			<a
+				href="https://marketplace.visualstudio.com/items?itemName=AdrianTafoya.monokai-modern-contrast"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="ide-btn ide-btn-secondary"
+			>
+				Mi tema VS Code
+			</a>
 		</div>
-	</section>
-</main>
-
-<footer class="border-t-2 border-crt-bezel py-8">
-	<div
-		class="mx-auto flex max-w-content flex-col items-start justify-between gap-3 px-4 font-pixel text-[8px] leading-relaxed text-ink-muted md:flex-row md:items-center md:px-6"
-	>
-		<span>© {new Date().getFullYear()} · HIGH SCORE: ADRIAN</span>
-		<span class="text-cyan">ASTRO + VANILLA JS</span>
-	</div>
-</footer>
-
-<style>
-	.arcade-blink {
-		animation: blink 1.2s steps(2, start) infinite;
-	}
-
-	@keyframes blink {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.arcade-blink {
-			animation: none;
-			opacity: 1;
-		}
-	}
-</style>
+	</Section>
+</div>

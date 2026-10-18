@@ -1,0 +1,53 @@
+---
+import { projects } from "../../data/projects";
+
+const tabs = [
+	{ id: "hero", label: "welcome.ts" },
+	{ id: "work", label: "projects.ts" },
+	...projects.map((p) => ({ id: p.id, label: p.fileName })),
+	{ id: "about", label: "about.md" },
+	{ id: "stack", label: "stack.json" },
+	{ id: "contact", label: "contact.ts" },
+];
+---
+
+<div
+	id="tab-bar"
+	class="flex h-[35px] shrink-0 items-stretch overflow-x-auto border-b border-mk-border bg-mk-chrome scrollbar-none"
+	role="tablist"
+	aria-label="Editor tabs"
+>
+	{
+		tabs.map((tab, i) => (
+			<a
+				href={`#${tab.id}`}
+				data-tab={tab.id}
+				role="tab"
+				class:list={[
+					"ide-tab inline-flex shrink-0 items-center gap-2 border-r border-mk-border px-3 text-[12px] text-mk-comment hover:bg-mk-editor",
+					i === 0 && "is-active",
+				]}
+			>
+				<span
+					class:list={[
+						"text-[9px] font-semibold",
+						tab.label.endsWith(".ts") && "text-mk-type",
+						tab.label.endsWith(".md") && "text-mk-fn",
+						tab.label.endsWith(".json") && "text-mk-string",
+					]}
+				>
+					{tab.label.endsWith(".ts") ? "TS" : tab.label.endsWith(".md") ? "MD" : "{}"}
+				</span>
+				{tab.label}
+			</a>
+		))
+	}
+</div>
+
+<style>
+	.ide-tab.is-active {
+		background: #1e1f1c;
+		color: #f8f8f2;
+		box-shadow: inset 0 2px 0 #fd971f;
+	}
+</style>

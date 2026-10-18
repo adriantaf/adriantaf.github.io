@@ -1,0 +1,67 @@
+---
+import { explorerFiles } from "../../data/projects";
+---
+
+<aside
+	id="ide-sidebar"
+	class="ide-sidebar absolute inset-y-0 left-0 z-30 hidden w-[min(80vw,240px)] flex-col border-r border-mk-border bg-mk-chrome md:static md:flex md:w-60"
+	aria-label="Explorer"
+>
+	<div class="flex h-9 items-center justify-between px-4 text-[11px] font-semibold uppercase tracking-wide text-mk-fg">
+		<span>Explorer</span>
+		<button
+			id="btn-sidebar-close"
+			type="button"
+			class="text-mk-comment hover:text-mk-fg md:hidden"
+			aria-label="Cerrar explorador"
+		>
+			×
+		</button>
+	</div>
+	<div class="px-2 pb-2 text-[11px] font-semibold uppercase tracking-wide text-mk-comment">
+		<span class="px-2">Portfolio</span>
+	</div>
+	<nav class="flex-1 overflow-y-auto px-1 pb-4 text-[13px]" aria-label="Archivos">
+		<ul class="space-y-0.5">
+			{
+				explorerFiles.map((file) => (
+					<li>
+						<a
+							href={file.href}
+							data-file={file.id}
+							class:list={[
+								"explorer-item flex items-center gap-1.5 rounded-sm px-2 py-1 text-mk-fg hover:bg-mk-line",
+								"nested" in file && file.nested && "pl-7",
+								"folder" in file && file.folder && "font-medium text-mk-comment",
+							]}
+						>
+							{"folder" in file && file.folder ? (
+								<span class="text-mk-param" aria-hidden="true">▾</span>
+							) : (
+								<span
+									class:list={[
+										"text-[10px]",
+										file.label.endsWith(".ts") && "text-mk-type",
+										file.label.endsWith(".md") && "text-mk-fn",
+										file.label.endsWith(".json") && "text-mk-string",
+									]}
+									aria-hidden="true"
+								>
+									{file.label.endsWith(".ts") ? "TS" : file.label.endsWith(".md") ? "MD" : file.label.endsWith(".json") ? "{}" : "·"}
+								</span>
+							)}
+							<span class="truncate">{file.label}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</aside>
+
+<style>
+	.explorer-item.is-active {
+		background: #3e3d32;
+		color: #f8f8f2;
+	}
+</style>
