@@ -9,14 +9,15 @@ interface Props {
 const { id, title, subtitle, className = "" } = Astro.props as Props;
 ---
 
-<section id={id} class={`mx-auto w-full max-w-content px-5 py-20 md:px-6 md:py-28 ${className}`}>
+<section id={id} class={`mx-auto w-full max-w-content px-4 py-16 md:px-6 md:py-24 ${className}`}>
 	<div class="reveal mb-10 md:mb-14">
-		<h2 class="text-[28px] font-semibold tracking-tight text-ink md:text-[40px] md:leading-tight">
+		<p class="mb-3 font-pixel text-[8px] text-amber md:text-[9px]">▶ SELECT</p>
+		<h2 class="font-pixel text-[14px] leading-relaxed text-cyan md:text-[18px] md:leading-relaxed">
 			{title}
 		</h2>
 		{
 			subtitle && (
-				<p class="mt-3 max-w-xl text-[17px] leading-relaxed text-ink-muted md:text-[19px]">
+				<p class="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-muted md:text-[16px]">
 					{subtitle}
 				</p>
 			)

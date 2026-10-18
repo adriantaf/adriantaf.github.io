@@ -3,58 +3,55 @@
 
 <header
 	id="site-header"
-	class="sticky top-0 z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300"
+	class="sticky top-0 z-40 border-b-2 border-crt-bezel bg-crt/90 transition-shadow duration-200"
 >
-	<div class="mx-auto flex h-[3.25rem] max-w-content items-center justify-between px-5 md:px-6">
-		<a href="#hero" class="text-[15px] font-semibold tracking-tight text-ink">
-			Adrian Tafoya
+	<div class="mx-auto flex h-14 max-w-content items-center justify-between gap-3 px-4 md:px-6">
+		<a href="#hero" class="font-pixel text-[10px] leading-none text-cyan md:text-[11px]">
+			ATM ARCADE
 		</a>
 
-		<nav class="hidden items-center gap-7 md:flex" aria-label="Principal">
-			<a class="nav-link" href="#work">Trabajo</a>
-			<a class="nav-link" href="#about">Sobre mí</a>
-			<a class="nav-link" href="#stack">Stack</a>
-			<a
-				href="mailto:atafoya863@gmail.com"
-				class="rounded-full bg-accent px-3.5 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-accent-hover"
-			>
-				Contacto
+		<nav class="hidden items-center gap-5 md:flex" aria-label="Principal">
+			<a class="nav-link" href="#work">STAGES</a>
+			<a class="nav-link" href="#about">PROFILE</a>
+			<a class="nav-link" href="#stack">POWER-UPS</a>
+			<a href="mailto:atafoya863@gmail.com" class="arcade-btn arcade-btn-primary !py-2 !text-[8px]">
+				CONTACTO
 			</a>
 		</nav>
 
 		<button
 			id="btn-menu"
 			type="button"
-			class="inline-flex h-9 w-9 items-center justify-center rounded-full text-ink md:hidden"
+			class="inline-flex h-9 w-9 items-center justify-center border-2 border-cyan text-cyan md:hidden"
 			aria-expanded="false"
 			aria-controls="mobile-nav"
 			aria-label="Abrir menú"
 		>
 			<span class="sr-only">Menú</span>
-			<svg id="icon-menu" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-				<path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+			<svg id="icon-menu" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="square"></path>
 			</svg>
-			<svg id="icon-close" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-				<path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+			<svg id="icon-close" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M6 6l12 12M18 6L6 18" stroke-linecap="square"></path>
 			</svg>
 		</button>
 	</div>
 
 	<nav
 		id="mobile-nav"
-		class="hidden border-t border-black/5 bg-canvas/95 px-5 py-4 backdrop-blur-xl md:hidden"
+		class="hidden border-t-2 border-crt-bezel bg-crt-panel px-4 py-4 md:hidden"
 		aria-label="Móvil"
 	>
-		<ul class="flex flex-col gap-1 text-[15px]">
-			<li><a class="mobile-link" href="#work">Trabajo</a></li>
-			<li><a class="mobile-link" href="#about">Sobre mí</a></li>
-			<li><a class="mobile-link" href="#stack">Stack</a></li>
+		<ul class="flex flex-col gap-1 font-pixel text-[9px] leading-relaxed">
+			<li><a class="mobile-link" href="#work">STAGES</a></li>
+			<li><a class="mobile-link" href="#about">PROFILE</a></li>
+			<li><a class="mobile-link" href="#stack">POWER-UPS</a></li>
 			<li>
 				<a
-					class="mt-2 inline-flex rounded-full bg-accent px-4 py-2 text-[13px] font-medium text-white"
+					class="arcade-btn arcade-btn-primary mt-3 !text-[8px]"
 					href="mailto:atafoya863@gmail.com"
 				>
-					Contacto
+					CONTACTO
 				</a>
 			</li>
 		</ul>
@@ -63,25 +60,25 @@
 
 <style>
 	.nav-link {
-		font-size: 13px;
-		font-weight: 500;
-		color: #6e6e73;
-		transition: color 0.2s ease;
+		font-family: var(--font-pixel);
+		font-size: 8px;
+		color: #8b9bb8;
+		letter-spacing: 0.04em;
+		transition: color 0.15s ease;
 	}
 	.nav-link:hover {
-		color: #1d1d1f;
+		color: #00e5ff;
 	}
 	.mobile-link {
 		display: block;
-		padding: 0.65rem 0;
-		font-weight: 500;
-		color: #1d1d1f;
+		padding: 0.7rem 0;
+		color: #e8f0ff;
+	}
+	.mobile-link:hover {
+		color: #00e5ff;
 	}
 	#site-header.is-scrolled {
-		border-color: rgba(0, 0, 0, 0.06);
-		background-color: rgba(251, 251, 253, 0.78);
-		backdrop-filter: saturate(180%) blur(20px);
-		-webkit-backdrop-filter: saturate(180%) blur(20px);
+		box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.15);
 	}
 </style>
 
@@ -93,8 +90,7 @@
 	const iconClose = document.getElementById("icon-close");
 
 	function setScrolled() {
-		if (!header) return;
-		header.classList.toggle("is-scrolled", window.scrollY > 8);
+		header?.classList.toggle("is-scrolled", window.scrollY > 8);
 	}
 
 	function setMenuOpen(open: boolean) {

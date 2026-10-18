@@ -11,13 +11,15 @@ import "./styles/Fonts.css";
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="Adrian Tafoya — desarrollador de software. Diseño e implemento productos web y desktop con interfaces claras y detalle de producto."
+			content="Adrian Tafoya — desarrollador de software. Portafolio arcade: productos web y desktop."
 		/>
-		<meta name="theme-color" content="#f5f5f7" />
-		<title>Adrian Tafoya | Portafolio</title>
+		<meta name="theme-color" content="#0a0e17" />
+		<title>Adrian Tafoya | ATM ARCADE</title>
 	</head>
-	<body class="font-sans text-ink bg-canvas antialiased">
-		<div class="page-bg" aria-hidden="true"></div>
+	<body class="font-mono text-ink bg-crt antialiased">
+		<div class="crt-bg" aria-hidden="true"></div>
+		<div class="crt-scanlines" aria-hidden="true"></div>
+		<div class="crt-vignette" aria-hidden="true"></div>
 		<div class="relative z-10 min-h-dvh">
 			<slot />
 		</div>
@@ -39,35 +41,123 @@ import "./styles/Fonts.css";
 		overflow-x: hidden;
 	}
 
-	.page-bg {
+	.crt-bg {
 		pointer-events: none;
 		position: fixed;
 		inset: 0;
 		z-index: 0;
 		background:
-			radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 113, 227, 0.08), transparent 55%),
-			radial-gradient(ellipse 60% 40% at 100% 50%, rgba(0, 0, 0, 0.03), transparent 50%),
-			linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 40%, #eef0f3 100%);
+			radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0, 229, 255, 0.07), transparent 55%),
+			radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255, 191, 0, 0.04), transparent 50%),
+			#0a0e17;
+	}
+
+	.crt-scanlines {
+		pointer-events: none;
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+		opacity: 0.045;
+		background: repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(0, 0, 0, 0.35) 2px,
+			rgba(0, 0, 0, 0.35) 4px
+		);
+	}
+
+	.crt-vignette {
+		pointer-events: none;
+		position: fixed;
+		inset: 0;
+		z-index: 49;
+		background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
 	}
 
 	.reveal {
 		opacity: 0;
-		transform: translateY(16px);
-		filter: blur(4px);
+		transform: translateY(12px);
 		transition:
-			opacity 0.7s ease,
-			transform 0.7s ease,
-			filter 0.7s ease;
+			opacity 0.55s ease,
+			transform 0.55s ease;
 	}
 
 	.reveal.is-visible {
 		opacity: 1;
 		transform: translateY(0);
-		filter: blur(0);
+	}
+
+	.arcade-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-pixel);
+		font-size: 10px;
+		line-height: 1.4;
+		padding: 0.75rem 1rem;
+		border: 2px solid currentColor;
+		background: transparent;
+		text-decoration: none;
+		transition:
+			transform 0.1s ease,
+			background-color 0.15s ease,
+			color 0.15s ease,
+			box-shadow 0.15s ease;
+	}
+
+	.arcade-btn:hover {
+		transform: translate(2px, 2px);
+	}
+
+	.arcade-btn:active {
+		transform: translate(3px, 3px);
+	}
+
+	.arcade-btn-primary {
+		color: #0a0e17;
+		background: #ffbf00;
+		border-color: #ffbf00;
+		box-shadow: 3px 3px 0 #00e5ff;
+	}
+
+	.arcade-btn-primary:hover {
+		background: #ffd24d;
+		box-shadow: 1px 1px 0 #00e5ff;
+	}
+
+	.arcade-btn-secondary {
+		color: #00e5ff;
+		border-color: #00e5ff;
+		box-shadow: 3px 3px 0 rgba(0, 229, 255, 0.25);
+	}
+
+	.arcade-btn-secondary:hover {
+		background: rgba(0, 229, 255, 0.12);
+		box-shadow: 1px 1px 0 rgba(0, 229, 255, 0.25);
 	}
 
 	::selection {
-		background: rgba(0, 113, 227, 0.18);
+		background: rgba(0, 229, 255, 0.35);
+		color: #0a0e17;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.crt-scanlines {
+			animation: none;
+		}
+
+		.animate-blink,
+		.arcade-blink {
+			animation: none !important;
+			opacity: 1 !important;
+		}
+
+		.reveal {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
 	}
 </style>
 

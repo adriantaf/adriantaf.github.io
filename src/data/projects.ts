@@ -8,6 +8,7 @@ export type Project = {
 	id: string;
 	name: string;
 	tag: "Producto" | "Cliente" | "Personal";
+	stage: number;
 	date: string;
 	description: string;
 	tech: string[];
@@ -21,6 +22,7 @@ export const projects: Project[] = [
 		id: "safebox",
 		name: "SafeBox",
 		tag: "Producto",
+		stage: 1,
 		date: "Febrero 2025",
 		description:
 			"Gestor de contraseñas local para equipos que no quieren secretos en la nube. App de escritorio con cifrado en dispositivo, interfaz sencilla y almacenamiento en SQLite.",
@@ -29,17 +31,18 @@ export const projects: Project[] = [
 		imageAlt: "Captura de SafeBox, gestor de contraseñas de escritorio",
 		links: [
 			{
-				label: "Descargar",
+				label: "DESCARGAR",
 				href: "https://github.com/adriantaf/safe-box/releases",
 				primary: true,
 			},
-			{ label: "Código", href: "https://github.com/adriantaf/safe-box/" },
+			{ label: "CODIGO", href: "https://github.com/adriantaf/safe-box/" },
 		],
 	},
 	{
 		id: "spotify-clon",
 		name: "Spotify clon",
 		tag: "Personal",
+		stage: 2,
 		date: "Diciembre 2024",
 		description:
 			"Clon front-end de Spotify para practicar UI compleja: navegación con React Router, estado global con Context API y una experiencia visual cercana al producto real.",
@@ -48,17 +51,18 @@ export const projects: Project[] = [
 		imageAlt: "Captura del clon de Spotify",
 		links: [
 			{
-				label: "Preview",
+				label: "PREVIEW",
 				href: "https://spotifymx.vercel.app/",
 				primary: true,
 			},
-			{ label: "Código", href: "https://github.com/adriantaf/spotify" },
+			{ label: "CODIGO", href: "https://github.com/adriantaf/spotify" },
 		],
 	},
 	{
 		id: "hashi-ramen",
 		name: "Hashi Ramen & Pho",
 		tag: "Cliente",
+		stage: 3,
 		date: "Septiembre 2024",
 		description:
 			"Sitio oficial de un restaurante local: inicio y menú alimentado por JSON, diseño limpio y listo para móvil. Entrega real para un negocio en Plaza Las Olas.",
@@ -67,7 +71,7 @@ export const projects: Project[] = [
 		imageAlt: "Captura del sitio de Hashi Ramen & Pho",
 		links: [
 			{
-				label: "Preview",
+				label: "PREVIEW",
 				href: "https://hashiramen.vercel.app/",
 				primary: true,
 			},
@@ -77,6 +81,7 @@ export const projects: Project[] = [
 		id: "loc-os-linux",
 		name: "Loc-OS Linux",
 		tag: "Cliente",
+		stage: 4,
 		date: "2021",
 		description:
 			"Rediseño de la página de la distribución Loc-OS Linux para el canal Locos por Linux. Tema oscuro con acentos amarillos; el diseño estuvo en uso durante 2021.",
@@ -85,11 +90,11 @@ export const projects: Project[] = [
 		imageAlt: "Captura del rediseño de Loc-OS Linux",
 		links: [
 			{
-				label: "Preview",
+				label: "PREVIEW",
 				href: "https://adriantaf.github.io/loc-os-linux/",
 				primary: true,
 			},
-			{ label: "Código", href: "https://github.com/adriantaf/loc-os-linux" },
+			{ label: "CODIGO", href: "https://github.com/adriantaf/loc-os-linux" },
 		],
 	},
 ];
