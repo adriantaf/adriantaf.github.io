@@ -15,7 +15,7 @@ export default {
 				},
 				ink: {
 					DEFAULT: '#e8f0ff',
-					muted: '#8b9bb8',
+					muted: '#a8b4cc',
 				},
 				cyan: {
 					DEFAULT: '#00e5ff',
